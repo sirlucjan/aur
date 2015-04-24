@@ -1,4 +1,4 @@
-Kernels and modules
+Kernels and modules:
 
 - linux-bfs
 
