@@ -5,7 +5,7 @@
 pkgname=nvidia-uksm
 pkgver=349.16
 _extramodules=extramodules-4.0-uksm
-pkgrel=3
+pkgrel=4
 _pkgdesc="NVIDIA drivers for linux-uksm."
 pkgdesc="$_pkgdesc"
 arch=('i686' 'x86_64')

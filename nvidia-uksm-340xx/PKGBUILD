@@ -5,7 +5,7 @@
 pkgname=nvidia-uksm-340xx
 pkgver=340.76
 _extramodules=extramodules-4.0-uksm
-pkgrel=7
+pkgrel=8
 _pkgdesc="NVIDIA 340xx drivers for linux-uksm."
 pkgdesc="$_pkgdesc"
 arch=('i686' 'x86_64')

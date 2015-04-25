@@ -5,7 +5,7 @@
 pkgname=nvidia-uksm-ck-304xx
 pkgver=304.125
 _extramodules=extramodules-4.0-uksm-ck
-pkgrel=7
+pkgrel=8
 _pkgdesc="NVIDIA 304xx drivers for linux-uksm-ck."
 pkgdesc="$_pkgdesc"
 arch=('i686' 'x86_64')
