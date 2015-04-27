@@ -251,7 +251,7 @@ build() {
 }
 
 package_linux-bridge-pl() {
-    pkgdesc='Linux Kernel and modules with the UKSM patchset featuring the  v1.2.3 and BFQ & BFS schedulers.'
+    pkgdesc='Linux Kernel and modules with the UKSM patchset featuring the  v1.2.4 and BFQ & BFS schedulers.'
     depends=('coreutils' 'linux-firmware' 'mkinitcpio>=0.7')
     optdepends=('crda: to set the correct wireless channels of your country' 'nvidia-bridge-pl: nVidia drivers for linux-bridge-pl' 'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
     backup=("etc/mkinitcpio.d/linux-bridge-pl.preset")
