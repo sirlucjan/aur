@@ -7,3 +7,5 @@ Kernels and modules:
 - linux-uksm
 
 - linux-uksm-ck
+
+- linux-lqx
