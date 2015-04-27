@@ -67,8 +67,8 @@ url="http://kerneldedup.org/"
 license=('GPL2')
 options=('!strip')
 makedepends=('kmod' 'inetutils' 'bc')
-#_uksmvernel="0.1.2.3"
-#_uksmname="v3.18"
+_uksmvernel="0.1.2.4-beta"
+_uksmname="v4.0"
 _bfsrel=462
 _bfspatch="4.0-sched-bfs-${_bfsrel}.patch"
 _bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.0.0-v7r7"
@@ -80,8 +80,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         #"http://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         #"https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         #"http://kerneldedup.org/download/uksm/${_uksmvernel}/uksm-${_uksmvernel}-for-${_uksmname}.patch" # website often went down
-        #"uksm-${_uksmvernel}-for-${_uksmname}.patch"
-        "uksm-0.1.2.4-beta-for-linux-v4.0.patch"
+        "uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
         "http://ck.kolivas.org/patches/bfs/4.0/4.0/${_bfspatch}"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck1/patches/hz-default_1000.patch"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck1/patches/hz-no_default_250.patch"
@@ -106,18 +105,15 @@ prepare() {
         msg "Patching set DEFAULT_CONSOLE_LOGLEVEL to 4"
         patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
         
- 
    ### Patch source with UKSM
-        msg "Patching with UKSM"
-        #patch -Np1 -i "${srcdir}/uksm-${_uksmvernel}-for-${_uksmname}.patch"
-        patch -Np1 -i "${srcdir}/uksm-0.1.2.4-beta-for-linux-v4.0.patch"
+       msg "Patching with UKSM"
+       patch -Np1 -i "${srcdir}/uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
  
    ### Patch source with BFS 
        msg "Patching source with BFS v0.462"
        patch -Np1 -i "${srcdir}/${_bfspatch}"
        patch -Np1 -i "${srcdir}/hz-default_1000.patch"
        patch -Np1 -i "${srcdir}/hz-no_default_250.patch" 
-   
    
    ### Patch source with BFQ
        msg "Patching source with BFQ patches"
@@ -126,7 +122,6 @@ prepare() {
        patch -Np1 -i "$p"
        done
     
-   
    ### Patch source to enable more gcc CPU optimizatons via the make nconfig
        msg "Patching source with gcc patch to enable more cpus types"
        patch -Np1 -i "${srcdir}/${_gcc_patch}"

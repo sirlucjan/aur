@@ -68,8 +68,8 @@ url="http://kerneldedup.org/"
 license=('GPL2')
 options=('!strip')
 makedepends=('kmod' 'inetutils' 'bc')
-#_uksmvernel="0.1.2.3"
-#_uksmname="v3.18"
+_uksmvernel="0.1.2.4-beta"
+_uksmname="v4.0"
 _ckpatchversion=1
 _ckpatchname="patch-4.0-ck${_ckpatchversion}"
 _bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.0.0-v7r7"
@@ -81,8 +81,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         #"http://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
         #"https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         #"http://kerneldedup.org/download/uksm/${_uksmvernel}/uksm-${_uksmvernel}-for-${_uksmname}.patch" # website often went down
-        #"uksm-${_uksmvernel}-for-${_uksmname}.patch"
-        "uksm-0.1.2.4-beta-for-linux-v4.0.patch"
+        "uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck${_ckpatchversion}/${_ckpatchname}.bz2"
         "${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r7-4.0.patch"
         "${_bfqpath}/0002-block-introduce-the-BFQ-v7r7-I-O-sched-for-4.0.patch"
@@ -108,17 +107,14 @@ prepare() {
     
     ### Patch source with UKSM
         msg "Patching with UKSM"
-        #patch -Np1 -i "${srcdir}/uksm-${_uksmvernel}-for-${_uksmname}.patch"
-        patch -Np1 -i "${srcdir}/uksm-0.1.2.4-beta-for-linux-v4.0.patch"
-  
- 
+        patch -Np1 -i "${srcdir}/uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
+     
     ### Patch source with ck patchset with BFS
     # fix double name in EXTRAVERSION
         sed -i -re "s/^(.EXTRAVERSION).*$/\1 = /" "${srcdir}/${_ckpatchname}"
         msg "Patching source with ck1 including BFS v0.462"
         patch -Np1 -i "${srcdir}/${_ckpatchname}"
   
-		
     ### Patch source with BFQ
         msg "Patching source with BFQ patches"
         for p in "${srcdir}"/000{1,2,3}-block*.patch; do
