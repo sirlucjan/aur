@@ -61,7 +61,7 @@ pkgname=('linux-bridge-pl' 'linux-bridge-pl-headers' 'linux-bridge-pl-docs')
 _kernelname=-bridge-pl
 _srcname=linux-4.0
 pkgver=4.0
-pkgrel=1
+pkgrel=2
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
 license=('GPL2')
@@ -84,6 +84,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "http://ck.kolivas.org/patches/bfs/4.0/4.0/${_bfspatch}"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck1/patches/hz-default_1000.patch"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck1/patches/hz-no_default_250.patch"
+        "http://ck.kolivas.org/patches/bfs/4.0/4.0/test/bfs462-remove_unlocked_unplug.patch"
         "${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r7-4.0.patch"
         "${_bfqpath}/0002-block-introduce-the-BFQ-v7r7-I-O-sched-for-4.0.patch"
         "${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r7-for-4.0.0.patch"
@@ -113,7 +114,8 @@ prepare() {
        msg "Patching source with BFS v0.462"
        patch -Np1 -i "${srcdir}/${_bfspatch}"
        patch -Np1 -i "${srcdir}/hz-default_1000.patch"
-       patch -Np1 -i "${srcdir}/hz-no_default_250.patch" 
+       patch -Np1 -i "${srcdir}/hz-no_default_250.patch"
+       patch -Np1 -i "${srcdir}/bfs462-remove_unlocked_unplug.patch"
    
    ### Patch source with BFQ
        msg "Patching source with BFQ patches"
@@ -471,6 +473,7 @@ sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f
             '576f7383bc4ade80a9180859d235d5d9c273a927ffbd4b36e0d7abd223b5998d628ce2a061025c5506ecf21b57dd10cb08bf9ef40e26f7203f84c01466d98d3a'
             '60622801e4f092b81af821a44bee47bba5a1cbecf66795a0c30774ee537a933bad0f7103157c273ab173d68268c3adc2962d7d47e29693cdeadf071ef64d2e2a'
             'a37ec7048b4da0ab0f58713aff5f347b80a6aceb476d523326cecd596942f0a0b893724e30af6ccee47395edfe5d1a49c836df8f6d7c4d0358336826f4e9a819'
+            'baa7cd3619d46b2301ccd24498d0f31ca2f12db9fd523a274fcdff9ca57e5b99127a22f2c0d96f8f218a6db0a0478180363a526e27a7727ab2a4569637559c1a'
             'f81297a1547ab96b8394123fc7aa2c7b21f1a44ad3a535f5e715bf593fba9c79bb16fc091498936e8b4e4bdf041f75c340002b9763f0b35f1207912d703ba566'
             'dafeaaea16168d445bdc1dcd1a97958b55f8dc79c61021e02c3fbf1ae7d4eae5aed2f565d6f2bf56c652803508d62f6f40765b3b831277d817bbe0a40aa5202d'
             'c4f5a82ca4c87d21768351e17fcefb61d238394baf4475934d3c384e9990d86af14631234a8dffc363d95abc34438edfe06f8a7e9c36a320062bf3270a2466e8'
@@ -479,7 +482,6 @@ sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             'c8cfe371a85624afbc89bf70a2b77cf2e95d3e5c2f58ba0f0ad23e815640923266b365016cb390b3f5555d5ae3f6ee1b4a7f3b3254283f742b6c21404fe34eff'
             '1463d2e4cc2bed371ec8b6b3e7fc44fb2e0d13b64072ba9536472c919e84f46a8ffe483408b54e246c58370e02d17267719411601279c58117b527d79ac5ee6b')
-            
 
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
