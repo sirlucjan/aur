@@ -60,8 +60,8 @@ pkgbase=linux-bridge-pl
 pkgname=('linux-bridge-pl' 'linux-bridge-pl-headers' 'linux-bridge-pl-docs')
 _kernelname=-bridge-pl
 _srcname=linux-4.0
-pkgver=4.0
-pkgrel=2
+pkgver=4.0.1
+pkgrel=1
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
 license=('GPL2')
@@ -77,8 +77,8 @@ _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patc
 
 source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        #"http://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        #"https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+        "http://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         #"http://kerneldedup.org/download/uksm/${_uksmvernel}/uksm-${_uksmvernel}-for-${_uksmname}.patch" # website often went down
         "uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
         "http://ck.kolivas.org/patches/bfs/4.0/4.0/${_bfspatch}"
@@ -97,8 +97,8 @@ prepare() {
     cd ${_srcname}
 
     ### Add upstream patch
-        #msg "Add upstream patch"
-        #patch -Np1 -i "${srcdir}/patch-${pkgver}"
+        msg "Add upstream patch"
+        patch -Np1 -i "${srcdir}/patch-${pkgver}"
     
     ### set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
     # remove this when a Kconfig knob is made available by upstream
@@ -469,6 +469,8 @@ package_linux-bridge-pl-docs() {
 
 sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f130c59177a2fe4793b7dc399481bf10d3556d1d571616000f180304e5a995'
             'SKIP'
+            '3f4547c759a7ce9f75671676d9d57e516ba8a6617d1c195aa5d728bc10926e200ac4285aa2612a7e3a8f4e4f4e3038e250563f139fb4f76d0f93b73222eb7d30'
+            'SKIP'
             'ce46c47a1685f5014f4ada55b9ee6292255a383f83c04ac84ae922d16fef0687ebf09e7a6b211f23c6d1156312ef812c950805979893792f3e19b6c643d2fb81'
             '576f7383bc4ade80a9180859d235d5d9c273a927ffbd4b36e0d7abd223b5998d628ce2a061025c5506ecf21b57dd10cb08bf9ef40e26f7203f84c01466d98d3a'
             '60622801e4f092b81af821a44bee47bba5a1cbecf66795a0c30774ee537a933bad0f7103157c273ab173d68268c3adc2962d7d47e29693cdeadf071ef64d2e2a'
@@ -482,7 +484,7 @@ sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             'c8cfe371a85624afbc89bf70a2b77cf2e95d3e5c2f58ba0f0ad23e815640923266b365016cb390b3f5555d5ae3f6ee1b4a7f3b3254283f742b6c21404fe34eff'
             '1463d2e4cc2bed371ec8b6b3e7fc44fb2e0d13b64072ba9536472c919e84f46a8ffe483408b54e246c58370e02d17267719411601279c58117b527d79ac5ee6b')
-
+       
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
               '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman

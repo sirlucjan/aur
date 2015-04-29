@@ -57,7 +57,7 @@ pkgbase=linux-uksm
 pkgname=('linux-uksm' 'linux-uksm-headers' 'linux-uksm-docs')
 _kernelname=-uksm
 _srcname=linux-4.0
-pkgver=4.0
+pkgver=4.0.1
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
@@ -72,8 +72,8 @@ _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patc
 
 source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "https://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.sign"
-        #"http://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
-        #"https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
+        "http://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.xz"
+        "https://www.kernel.org/pub/linux/kernel/v4.x/patch-${pkgver}.sign"
         #"http://kerneldedup.org/download/uksm/${_uksmvernel}/uksm-${_uksmvernel}-for-${_uksmname}.patch" # website often went down
         "uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
         "${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r7-4.0.patch"
@@ -88,8 +88,8 @@ prepare() {
     cd ${_srcname}
 
     ### Add upstream patch
-        #msg "Add upstream patch"
-        #patch -Np1 -i "${srcdir}/patch-${pkgver}"
+        msg "Add upstream patch"
+        patch -Np1 -i "${srcdir}/patch-${pkgver}"
     
     ### set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
     # remove this when a Kconfig knob is made available by upstream
@@ -445,6 +445,8 @@ package_linux-uksm-docs() {
 }
 
 sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f130c59177a2fe4793b7dc399481bf10d3556d1d571616000f180304e5a995'
+            'SKIP'
+            '3f4547c759a7ce9f75671676d9d57e516ba8a6617d1c195aa5d728bc10926e200ac4285aa2612a7e3a8f4e4f4e3038e250563f139fb4f76d0f93b73222eb7d30'
             'SKIP'
             'ce46c47a1685f5014f4ada55b9ee6292255a383f83c04ac84ae922d16fef0687ebf09e7a6b211f23c6d1156312ef812c950805979893792f3e19b6c643d2fb81'
             'f81297a1547ab96b8394123fc7aa2c7b21f1a44ad3a535f5e715bf593fba9c79bb16fc091498936e8b4e4bdf041f75c340002b9763f0b35f1207912d703ba566'
