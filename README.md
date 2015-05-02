@@ -1,5 +1,7 @@
 Kernels and modules:
 
+- linux-bfq
+
 - linux-bfs
 
 - linux-bridge-pl
@@ -9,3 +11,4 @@ Kernels and modules:
 - linux-uksm-ck
 
 - linux-lqx
+
