@@ -47,7 +47,7 @@ _use_current=
 # Set this if you want it enabled globally i.e. for all devices in your system
 # If you want it enabled on a device-by-device basis, leave this unset and see:
 # https://wiki.archlinux.org/index.php/Linux-ck#How_to_Enable_the_BFQ_I.2FO_Scheduler
-_BFQ_enable_=
+_BFQ_enable_=y
 
 ### Do not edit below this line unless you know what you're doing
 
