@@ -61,7 +61,7 @@ pkgname=('linux-bridge-pl' 'linux-bridge-pl-headers' 'linux-bridge-pl-docs')
 _kernelname=-bridge-pl
 _srcname=linux-4.0
 pkgver=4.0.1
-pkgrel=2
+pkgrel=3
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
 license=('GPL2')
@@ -482,8 +482,8 @@ sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f
             '76bf6a9f22b023ab8f780884f595dac1801d150ecd94f88da229c5c9ea98d2c3ef8add01ff7e18e4cbbfa5e6e9c022c4042ee62c779a8485203c1b0e082b8ccc'
             '796a262faa081a8a3decca67c734f989f1394aa2f0baad6dc0ce68aebd3994689726c6b301ead4174ecf86b50c5e40c22cffc8542282bbcef01aebd2526dcc85'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            'c8cfe371a85624afbc89bf70a2b77cf2e95d3e5c2f58ba0f0ad23e815640923266b365016cb390b3f5555d5ae3f6ee1b4a7f3b3254283f742b6c21404fe34eff'
-            '1463d2e4cc2bed371ec8b6b3e7fc44fb2e0d13b64072ba9536472c919e84f46a8ffe483408b54e246c58370e02d17267719411601279c58117b527d79ac5ee6b')
+            '3b58a08d168d8c581518e04a822e809c44ed0de84126a6716e89c03d0791366d4190c7f3a74ea11e229f4172e2b079e9b3f376dffce5d98a006ed9a031d893d2'
+            '9b556d994c4d66ae6f724d83909a64ffd8c37d10cd691c285abdce14b3da9f849dc96b029868024a0008ba34a1c86584e252754f3125cede48f2aa65564f168d')
        
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
