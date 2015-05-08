@@ -60,8 +60,8 @@ pkgbase=linux-bridge-pl
 pkgname=('linux-bridge-pl' 'linux-bridge-pl-headers' 'linux-bridge-pl-docs')
 _kernelname=-bridge-pl
 _srcname=linux-4.0
-pkgver=4.0.1
-pkgrel=3
+pkgver=4.0.2
+pkgrel=1
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
 license=('GPL2')
@@ -85,6 +85,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck1/patches/hz-default_1000.patch"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck1/patches/hz-no_default_250.patch"
         "http://ck.kolivas.org/patches/bfs/4.0/4.0/test/bfs462-ist-change.patch"
+        "http://ck.kolivas.org/patches/bfs/4.0/4.0/pending/bfs462-rtmn-fix.patch"
+        "http://ck.kolivas.org/patches/bfs/4.0/4.0/pending/bfs462-update_inittask.patch"
         "${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r7-4.0.patch"
         "${_bfqpath}/0002-block-introduce-the-BFQ-v7r7-I-O-sched-for-4.0.patch"
         "${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r7-for-4.0.0.patch"
@@ -116,6 +118,8 @@ prepare() {
        patch -Np1 -i "${srcdir}/hz-default_1000.patch"
        patch -Np1 -i "${srcdir}/hz-no_default_250.patch"
        patch -Np1 -i "${srcdir}/bfs462-ist-change.patch"
+       patch -Np1 -i "${srcdir}/bfs462-rtmn-fix.patch"
+       patch -Np1 -i "${srcdir}/bfs462-update_inittask.patch"
    
    ### Patch source with BFQ
        msg "Patching source with BFQ patches"
@@ -469,21 +473,23 @@ package_linux-bridge-pl-docs() {
 
 sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f130c59177a2fe4793b7dc399481bf10d3556d1d571616000f180304e5a995'
             'SKIP'
-            '3f4547c759a7ce9f75671676d9d57e516ba8a6617d1c195aa5d728bc10926e200ac4285aa2612a7e3a8f4e4f4e3038e250563f139fb4f76d0f93b73222eb7d30'
+            'bb633f5db560737295407d5d68522b2a0e05007aed15a9ef3a9e3d8ede9773fac127c96f063509d097294aa1beb596c746e622a9f55d9ba22f346d2e45c1d3d5'
             'SKIP'
             'ce46c47a1685f5014f4ada55b9ee6292255a383f83c04ac84ae922d16fef0687ebf09e7a6b211f23c6d1156312ef812c950805979893792f3e19b6c643d2fb81'
             '576f7383bc4ade80a9180859d235d5d9c273a927ffbd4b36e0d7abd223b5998d628ce2a061025c5506ecf21b57dd10cb08bf9ef40e26f7203f84c01466d98d3a'
             '60622801e4f092b81af821a44bee47bba5a1cbecf66795a0c30774ee537a933bad0f7103157c273ab173d68268c3adc2962d7d47e29693cdeadf071ef64d2e2a'
             'a37ec7048b4da0ab0f58713aff5f347b80a6aceb476d523326cecd596942f0a0b893724e30af6ccee47395edfe5d1a49c836df8f6d7c4d0358336826f4e9a819'
             '94e18b35fac36d9af9a0aa141790b8c761213020b5c470a68d57e2cb1e918740affdf69f734485417b316632631b00c959408457d541f9904617d4ee192235d9'
+            '47e4134fa35a1596b390bdc7eadc59b75b88594e84b54a71a0fd7886bbef083c174ca5627bd2a899966eddd35b676df735b0304e737218040ab8edf72f333ef2'
+            '623c4fc879b6bb17f1640caa268bf19cf65fbfa6c5910bbb5fdd44f1013913e5728d80fa037f33288a08ac56a23ee326951a15822a871dee2fb3d775ced9357e'
             'f81297a1547ab96b8394123fc7aa2c7b21f1a44ad3a535f5e715bf593fba9c79bb16fc091498936e8b4e4bdf041f75c340002b9763f0b35f1207912d703ba566'
             'dafeaaea16168d445bdc1dcd1a97958b55f8dc79c61021e02c3fbf1ae7d4eae5aed2f565d6f2bf56c652803508d62f6f40765b3b831277d817bbe0a40aa5202d'
             'c4f5a82ca4c87d21768351e17fcefb61d238394baf4475934d3c384e9990d86af14631234a8dffc363d95abc34438edfe06f8a7e9c36a320062bf3270a2466e8'
             '76bf6a9f22b023ab8f780884f595dac1801d150ecd94f88da229c5c9ea98d2c3ef8add01ff7e18e4cbbfa5e6e9c022c4042ee62c779a8485203c1b0e082b8ccc'
             '796a262faa081a8a3decca67c734f989f1394aa2f0baad6dc0ce68aebd3994689726c6b301ead4174ecf86b50c5e40c22cffc8542282bbcef01aebd2526dcc85'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            '3b58a08d168d8c581518e04a822e809c44ed0de84126a6716e89c03d0791366d4190c7f3a74ea11e229f4172e2b079e9b3f376dffce5d98a006ed9a031d893d2'
-            '9b556d994c4d66ae6f724d83909a64ffd8c37d10cd691c285abdce14b3da9f849dc96b029868024a0008ba34a1c86584e252754f3125cede48f2aa65564f168d')
+            'a44869c7356d6f637cce6e9f7c59da9f25d56ca0acb0df8d71d679fe4787b4f2d072847a06a4b1f708c81aa99b07c166cdc793a7431dd6cfdd29a626d5ae5ebb'
+            '6b12a9272ad01f288e805673ac139be4083447c3af43cc5fb47beabe606a74f5d199a1d8e278dc07f2784573487b185a9d5b1b96e53937d1c66b1ee790cf65c4')
        
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
