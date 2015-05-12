@@ -10,18 +10,6 @@
 │   └── linux-bfq.preset
 ├── linux-bfs
 │   ├── PKGBUILD
-│   ├── bfs462-Clean-up-wake_entry-in-task_struct.patch
-│   ├── bfs462-cpu_rq(cpu).patch
-│   ├── bfs462-make-grq-cacheline.patch
-│   ├── bfs462-refactor-idle.patch
-│   ├── bfs462-refactor-needs_other_cpu.patch
-│   ├── bfs462-refactor-online_cpus.patch
-│   ├── bfs462-refactor-rq-dither.patch
-│   ├── bfs462-refactor-set_rq_task.patch
-│   ├── bfs462-resched_curr.patch
-│   ├── bfs462-sched_getaffinity.patch
-│   ├── bfs462-sched_setscheduler.patch
-│   ├── bfs462-schedule_and_io_schedule_timeout.patch
 │   ├── change-default-console-loglevel.patch
 │   ├── config
 │   ├── config.x86_64
@@ -29,18 +17,6 @@
 │   └── linux-bfs.preset
 ├── linux-bridge-pl
 │   ├── PKGBUILD
-│   ├── bfs462-Clean-up-wake_entry-in-task_struct.patch
-│   ├── bfs462-cpu_rq(cpu).patch
-│   ├── bfs462-make-grq-cacheline.patch
-│   ├── bfs462-refactor-idle.patch
-│   ├── bfs462-refactor-needs_other_cpu.patch
-│   ├── bfs462-refactor-online_cpus.patch
-│   ├── bfs462-refactor-rq-dither.patch
-│   ├── bfs462-refactor-set_rq_task.patch
-│   ├── bfs462-resched_curr.patch
-│   ├── bfs462-sched_getaffinity.patch
-│   ├── bfs462-sched_setscheduler.patch
-│   ├── bfs462-schedule_and_io_schedule_timeout.patch
 │   ├── change-default-console-loglevel.patch
 │   ├── config
 │   ├── config.x86_64
@@ -61,18 +37,6 @@
 │   └── uksm-0.1.2.4-beta-for-linux-v4.0.patch
 ├── linux-uksm-ck
 │   ├── PKGBUILD
-│   ├── bfs462-Clean-up-wake_entry-in-task_struct.patch
-│   ├── bfs462-cpu_rq(cpu).patch
-│   ├── bfs462-make-grq-cacheline.patch
-│   ├── bfs462-refactor-idle.patch
-│   ├── bfs462-refactor-needs_other_cpu.patch
-│   ├── bfs462-refactor-online_cpus.patch
-│   ├── bfs462-refactor-rq-dither.patch
-│   ├── bfs462-refactor-set_rq_task.patch
-│   ├── bfs462-resched_curr.patch
-│   ├── bfs462-sched_getaffinity.patch
-│   ├── bfs462-sched_setscheduler.patch
-│   ├── bfs462-schedule_and_io_schedule_timeout.patch
 │   ├── change-default-console-loglevel.patch
 │   ├── config
 │   ├── config.x86_64
@@ -188,4 +152,4 @@
     ├── guest.install
     └── host.install
 
-30 directories, 158 files
+30 directories, 122 files
