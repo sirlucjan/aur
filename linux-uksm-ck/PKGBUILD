@@ -26,7 +26,7 @@ _1k_HZ_ticks=y
 # NUMA is optimized for multi-socket motherboards.
 # A single multi-core CPU actually runs slower with NUMA enabled.
 # See, https://bugs.archlinux.org/task/31187
-_NUMAdisable=y
+#_NUMAdisable=y
 
 # Compile ONLY probed modules
 # As of mainline 2.6.32, running with this option will only build the modules
@@ -62,7 +62,7 @@ pkgname=('linux-uksm-ck' 'linux-uksm-ck-headers' 'linux-uksm-ck-docs')
 _kernelname=-uksm-ck
 _srcname=linux-4.0
 pkgver=4.0.2
-pkgrel=2
+pkgrel=4
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
 license=('GPL2')
@@ -84,19 +84,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
         "http://ck.kolivas.org/patches/4.0/4.0/4.0-ck${_ckpatchversion}/${_ckpatchname}.bz2"
         "http://ck.kolivas.org/patches/bfs/4.0/4.0/pending/bfs462-rtmn-fix.patch"
-        "http://ck.kolivas.org/patches/bfs/4.0/4.0/pending/bfs462-update_inittask.patch"
-        "bfs462-Clean-up-wake_entry-in-task_struct.patch"  
-        "bfs462-make-grq-cacheline.patch"              
-        "bfs462-refactor-online_cpus.patch"  
-        "bfs462-sched_getaffinity.patch"
-        "bfs462-cpu_rq(cpu).patch"                         
-        "bfs462-refactor-rq-dither.patch"    
-        "bfs462-sched_setscheduler.patch"                        
-        "bfs462-refactor-idle.patch"                   
-        "bfs462-refactor-set_rq_task.patch"  
-        "bfs462-schedule_and_io_schedule_timeout.patch"                   
-        "bfs462-refactor-needs_other_cpu.patch"       
-        "bfs462-resched_curr.patch"          
+        "http://ck.kolivas.org/patches/bfs/4.0/4.0/pending/bfs462-update_inittask.patch"   
         "${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r7-4.0.patch"
         "${_bfqpath}/0002-block-introduce-the-BFQ-v7r7-I-O-sched-for-4.0.patch"
         "${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r7-for-4.0.0.patch"
@@ -187,22 +175,22 @@ prepare() {
 	fi
 
 	### Optionally disable NUMA since >99% of users have mono-socket systems.
-	# For more, see: https://bugs.archlinux.org/task/31187
-	if [ -n "$_NUMAdisable" ]; then
-		if [ "${CARCH}" = "x86_64" ]; then
-			msg "Disabling NUMA from kernel config..."
-			sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
-				-i -e '/CONFIG_AMD_NUMA=y/d' \
-				-i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
-				-i -e '/CONFIG_NODES_SPAN_OTHER_NODES=y/d' \
-				-i -e '/# CONFIG_NUMA_EMU is not set/d' \
-				-i -e '/CONFIG_NODES_SHIFT=6/d' \
-				-i -e '/CONFIG_NEED_MULTIPLE_NODES=y/d' \
-				-i -e '/# CONFIG_MOVABLE_NODE is not set/d' \
-				-i -e '/CONFIG_USE_PERCPU_NUMA_NODE_ID=y/d' \
-				-i -e '/CONFIG_ACPI_NUMA=y/d' ./.config
-		fi
-	fi
+#	# For more, see: https://bugs.archlinux.org/task/31187
+#	if [ -n "$_NUMAdisable" ]; then
+#		if [ "${CARCH}" = "x86_64" ]; then
+#			msg "Disabling NUMA from kernel config..."
+#			sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
+#				-i -e '/CONFIG_AMD_NUMA=y/d' \
+#				-i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
+#				-i -e '/CONFIG_NODES_SPAN_OTHER_NODES=y/d' \
+#				-i -e '/# CONFIG_NUMA_EMU is not set/d' \
+#				-i -e '/CONFIG_NODES_SHIFT=6/d' \
+#				-i -e '/CONFIG_NEED_MULTIPLE_NODES=y/d' \
+#				-i -e '/# CONFIG_MOVABLE_NODE is not set/d' \
+#				-i -e '/CONFIG_USE_PERCPU_NUMA_NODE_ID=y/d' \
+#				-i -e '/CONFIG_ACPI_NUMA=y/d' ./.config
+#		fi
+#	fi
 
 	### Optionally enable BFQ as the default I/O scheduler
 	if [ -n "$_BFQ_enable_" ]; then
@@ -493,18 +481,6 @@ sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f
             '97f392e0bed2e6622aed7eb344f0ed499bb58ee118e62e28b67080df6ef02c7b874596e70d7db970a2f58f9f94faa3406c8a29eb5f6871ddc8d290ecd6aaf0b5'
             '47e4134fa35a1596b390bdc7eadc59b75b88594e84b54a71a0fd7886bbef083c174ca5627bd2a899966eddd35b676df735b0304e737218040ab8edf72f333ef2'
             '623c4fc879b6bb17f1640caa268bf19cf65fbfa6c5910bbb5fdd44f1013913e5728d80fa037f33288a08ac56a23ee326951a15822a871dee2fb3d775ced9357e'
-            'ec4a2336652ca1da5f5cde4ac2f34b63be0c2a57e70f218d7b0162c99157cd39d75abdb572f898a634e65334ff7e996a7d73a0a436618fa795d54617fb3b336c'
-            '7e06f33c47eeb6333356ff2e86426faf58ec5a62b9847a008bc563e9d4da7e374d5fc3118591a0cacb29780d780ef7797b0e36fe4749ab4c9247ba57b91f92d1'
-            'e7762df5f4568094827ac2a1af9db95afccc63f6546980664b39bbbdd2594fcd1296cbe1dacb537d38308e9e7a1fe76140815ce369a3974d2301aa09bfa4115f'
-            '57182b54637d071a78d3d76a4488891cca69ce9095d6927a187d33455031e48e8c58ff5aa42f217e15ca81c1b18eb75c3e44994f43974fa869c160207b1c3d30'
-            'd603e03f3f6ef5819c06303c5429e3a531ed5a21aa5b3f9d232339e87343f540620d49ea0592497f680c1db480e3c9643c00ae2eb3582ef8607dceb8798ecd8c'
-            '1b63640cf56c2dce5cc300ab9ce747766edaaba5926dadd2bfdfb769e8035de706ad91a4a0d6e1b7d5b051a497c675b7cd8f7093f78ed6cd3d4a2ffe41b2e8a5'
-            '38cafd3d3af31a3c3bdebd1c37e688a0f469ed1af00b5fad16b5f9bedc969bfe13ee45a0733837b42c6847dbcf995257ba00adf51966807047edac47cbe52fdd'
-            '79c42e0a496e417b0a185d5b2801d9cb5bf94f11453182c2afd2392cd7edc871e26747df255ab00d71513d87e0a1b3fd5e584bb5ec03fb1e6af659f121533939'
-            '573fbd80de4a64a003996f8e9facd7663465bf63b9421bba89fb1500889cdc9045eace2163b2814144dd89fe5335217b763c99d6686ed30ca021f18db8941148'
-            '5de394e2e28c36bd536efea2f6173f1287a07df0fcdc83e84b61971b86f582fa5b618169d9d2f3baf1f51f3a754ee1bed676d8b8797949a57c46588a99c86a32'
-            'e359e34f5eb4b8f32aca2f5e92a40c60aa90f7c7dc4268bd9877fe8085ad13234da35a0736f4842ac4ba9343a2172fe371e601db855f74eee7dd7e4ebb49bca9'
-            '159b22dc27075d24e81e31cbd7b70ec1256bdb2de99a2b19f64631d736a8a9edef14c2023a69a264d39551774ab1a3b9c91457e79590c8119ea909f34ce7af0f'
             'f81297a1547ab96b8394123fc7aa2c7b21f1a44ad3a535f5e715bf593fba9c79bb16fc091498936e8b4e4bdf041f75c340002b9763f0b35f1207912d703ba566'
             'dafeaaea16168d445bdc1dcd1a97958b55f8dc79c61021e02c3fbf1ae7d4eae5aed2f565d6f2bf56c652803508d62f6f40765b3b831277d817bbe0a40aa5202d'
             'c4f5a82ca4c87d21768351e17fcefb61d238394baf4475934d3c384e9990d86af14631234a8dffc363d95abc34438edfe06f8a7e9c36a320062bf3270a2466e8'
@@ -513,7 +489,7 @@ sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             'e123bbd6a16fb93f3db565c01bc2aabb8f89142edd402537a160d215f2bc3e5c8328c6e296a1d46913ff89e9cb0ffe22ff7fee2d554b822630673f683a69e224'
             '8b164f551b01f8222a78cc7f73e65c6d6c855afe1fe42a84cd8082e2eebf0cfb30285f705327f58003f2da1a81842e937f0491975c53627bbabe19979629fdf4')
-
+            
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
               '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
