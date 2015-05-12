@@ -65,7 +65,7 @@ pkgname=('linux-bfs' 'linux-bfs-headers' 'linux-bfs-docs')
 _kernelname=-bfs
 _srcname=linux-4.0
 pkgver=4.0.2
-pkgrel=2
+pkgrel=3
 arch=('i686' 'x86_64')
 url="http://ck-hack.blogspot.de"
 license=('GPL2')
@@ -116,21 +116,26 @@ prepare() {
      ### set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
      # remove this when a Kconfig knob is made available by upstream
      # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
-        msg "Patching set DEFAULT_CONSOLE_LOGLEVEL to 4"
-        patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
+         msg "Patching set DEFAULT_CONSOLE_LOGLEVEL to 4"
+         patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
  
      ### Patch source with BFS 
          msg "Patching source with BFS v0.462"
          patch -Np1 -i "${srcdir}/${_bfspatch}"
-         patch -Np1 -i "${srcdir}/hz-default_1000.patch"
-         patch -Np1 -i "${srcdir}/hz-no_default_250.patch"
+    
+     ### Patch source with ck-hz patches
+         msg "Patch source with ck-hz patches"
+         for p in "${srcdir}"/hz-*.patch; do
+         msg " $p"
+         patch -Np1 -i "$p"
+         done 
          
      ### Patch source with bfs462 fix patches
-        msg "Patching source with bfs462 fix patches"
-        for p in "${srcdir}"/bfs462*.patch; do
-        msg " $p"
-        patch -Np1 -i "$p"
-        done
+         msg "Patching source with bfs462 fix patches"
+         for p in "${srcdir}"/bfs462*.patch; do
+         msg " $p"
+         patch -Np1 -i "$p"
+         done
    
      ### Patch source with BFQ
          msg "Patching source with BFQ patches"
@@ -139,9 +144,9 @@ prepare() {
          patch -Np1 -i "$p"
          done
     
-    ### Patch source to enable more gcc CPU optimizatons via the make nconfig
-        msg "Patching source with gcc patch to enable more cpus types"
-        patch -Np1 -i "${srcdir}/${_gcc_patch}"
+     ### Patch source to enable more gcc CPU optimizatons via the make nconfig
+         msg "Patching source with gcc patch to enable more cpus types"
+         patch -Np1 -i "${srcdir}/${_gcc_patch}"
 
    
     ### Clean tree and copy ARCH config over

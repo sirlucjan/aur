@@ -61,7 +61,7 @@ pkgname=('linux-bridge-pl' 'linux-bridge-pl-headers' 'linux-bridge-pl-docs')
 _kernelname=-bridge-pl
 _srcname=linux-4.0
 pkgver=4.0.2
-pkgrel=2
+pkgrel=3
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
 license=('GPL2')
@@ -119,33 +119,38 @@ prepare() {
         msg "Patching set DEFAULT_CONSOLE_LOGLEVEL to 4"
         patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
         
-   ### Patch source with UKSM
-       msg "Patching with UKSM"
-       patch -Np1 -i "${srcdir}/uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
+    ### Patch source with UKSM
+        msg "Patching with UKSM"
+        patch -Np1 -i "${srcdir}/uksm-${_uksmvernel}-for-linux-${_uksmname}.patch"
  
-   ### Patch source with BFS 
-       msg "Patching source with BFS v0.462"
-       patch -Np1 -i "${srcdir}/${_bfspatch}"
-       patch -Np1 -i "${srcdir}/hz-default_1000.patch"
-       patch -Np1 -i "${srcdir}/hz-no_default_250.patch"
-   
-   ### Patch source with bfs462 fix patches
+    ### Patch source with BFS 
+        msg "Patching source with BFS v0.462"
+        patch -Np1 -i "${srcdir}/${_bfspatch}"
+    
+    ### Patch source with ck-hz patches
+        msg "Patch source with ck-hz patches"
+        for p in "${srcdir}"/hz-*.patch; do
+        msg " $p"
+        patch -Np1 -i "$p"
+        done 
+    
+    ### Patch source with bfs462 fix patches
         msg "Patching source with bfs462 fix patches"
         for p in "${srcdir}"/bfs462*.patch; do
         msg " $p"
         patch -Np1 -i "$p"
         done
    
-   ### Patch source with BFQ
-       msg "Patching source with BFQ patches"
-       for p in "${srcdir}"/000{1,2,3}-block*.patch; do
-       msg " $p"
-       patch -Np1 -i "$p"
-       done
+    ### Patch source with BFQ
+        msg "Patching source with BFQ patches"
+        for p in "${srcdir}"/000{1,2,3}-block*.patch; do
+        msg " $p"
+        patch -Np1 -i "$p"
+        done
     
-   ### Patch source to enable more gcc CPU optimizatons via the make nconfig
-       msg "Patching source with gcc patch to enable more cpus types"
-       patch -Np1 -i "${srcdir}/${_gcc_patch}"
+    ### Patch source to enable more gcc CPU optimizatons via the make nconfig
+        msg "Patching source with gcc patch to enable more cpus types"
+        patch -Np1 -i "${srcdir}/${_gcc_patch}"
 
     
     ### Clean tree and copy ARCH config over
