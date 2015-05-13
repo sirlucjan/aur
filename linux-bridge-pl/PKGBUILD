@@ -60,8 +60,8 @@ pkgbase=linux-bridge-pl
 pkgname=('linux-bridge-pl' 'linux-bridge-pl-headers' 'linux-bridge-pl-docs')
 _kernelname=-bridge-pl
 _srcname=linux-4.0
-pkgver=4.0.2
-pkgrel=4
+pkgver=4.0.3
+pkgrel=1
 arch=('i686' 'x86_64')
 url="http://kerneldedup.org/"
 license=('GPL2')
@@ -179,7 +179,9 @@ prepare() {
 		sed -i "s|CONFIG_LOCALVERSION=.*|CONFIG_LOCALVERSION=\"${_kernelname}\"|g" ./.config
 		sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
 	fi
-
+        
+        ### Do not disable NUMA until CK figures out why doing so causes panics for
+	### some users!
 	### Optionally disable NUMA since >99% of users have mono-socket systems.
 	# For more, see: https://bugs.archlinux.org/task/31187
 #	if [ -n "$_NUMAdisable" ]; then
@@ -480,7 +482,7 @@ package_linux-bridge-pl-docs() {
 
 sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f130c59177a2fe4793b7dc399481bf10d3556d1d571616000f180304e5a995'
             'SKIP'
-            'bb633f5db560737295407d5d68522b2a0e05007aed15a9ef3a9e3d8ede9773fac127c96f063509d097294aa1beb596c746e622a9f55d9ba22f346d2e45c1d3d5'
+            'ee0967151de3567bda0d0fd1edc96d7d14ed1450d3c13d53b3842ad1caa9e687908e2442a1249f0c4b5ca8113f3a65af2dd28d8ce12ca5db174f09a27b8726ab'
             'SKIP'
             'ce46c47a1685f5014f4ada55b9ee6292255a383f83c04ac84ae922d16fef0687ebf09e7a6b211f23c6d1156312ef812c950805979893792f3e19b6c643d2fb81'
             '576f7383bc4ade80a9180859d235d5d9c273a927ffbd4b36e0d7abd223b5998d628ce2a061025c5506ecf21b57dd10cb08bf9ef40e26f7203f84c01466d98d3a'

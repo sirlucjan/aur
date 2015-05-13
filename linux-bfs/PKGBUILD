@@ -64,8 +64,8 @@ pkgbase=linux-bfs
 pkgname=('linux-bfs' 'linux-bfs-headers' 'linux-bfs-docs')
 _kernelname=-bfs
 _srcname=linux-4.0
-pkgver=4.0.2
-pkgrel=4
+pkgver=4.0.3
+pkgrel=1
 arch=('i686' 'x86_64')
 url="http://ck-hack.blogspot.de"
 license=('GPL2')
@@ -176,6 +176,8 @@ prepare() {
 		sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
 	fi
 
+	### Do not disable NUMA until CK figures out why doing so causes panics for
+	### some users!
 	### Optionally disable NUMA since >99% of users have mono-socket systems.
 	# For more, see: https://bugs.archlinux.org/task/31187
 #	if [ -n "$_NUMAdisable" ]; then
@@ -477,7 +479,7 @@ package_linux-bfs-docs() {
 
 sha512sums=('ce13d2c1c17908fd9a4aa42bb6348a0cb13dd22e560bd54c61b8bfdf62726d6095f130c59177a2fe4793b7dc399481bf10d3556d1d571616000f180304e5a995'
             'SKIP'
-            'bb633f5db560737295407d5d68522b2a0e05007aed15a9ef3a9e3d8ede9773fac127c96f063509d097294aa1beb596c746e622a9f55d9ba22f346d2e45c1d3d5'
+            'ee0967151de3567bda0d0fd1edc96d7d14ed1450d3c13d53b3842ad1caa9e687908e2442a1249f0c4b5ca8113f3a65af2dd28d8ce12ca5db174f09a27b8726ab'
             'SKIP'
             '576f7383bc4ade80a9180859d235d5d9c273a927ffbd4b36e0d7abd223b5998d628ce2a061025c5506ecf21b57dd10cb08bf9ef40e26f7203f84c01466d98d3a'
             '60622801e4f092b81af821a44bee47bba5a1cbecf66795a0c30774ee537a933bad0f7103157c273ab173d68268c3adc2962d7d47e29693cdeadf071ef64d2e2a'
