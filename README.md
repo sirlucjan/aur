@@ -12,3 +12,5 @@ Kernels and modules:
 
 - linux-lqx
 
+- linux-lqx-old
+
