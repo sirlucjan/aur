@@ -3,7 +3,7 @@
 pkgname=nvidia-bfs-304xx
 pkgver=304.125
 _extramodules=extramodules-4.1-bfs
-pkgrel=8
+pkgrel=9
 _pkgdesc="NVIDIA 304xx drivers for linux-bfs."
 pkgdesc="$_pkgdesc"
 arch=('i686' 'x86_64')

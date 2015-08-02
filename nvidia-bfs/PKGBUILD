@@ -4,7 +4,7 @@
 pkgname=nvidia-bfs
 pkgver=352.30
 _extramodules=extramodules-4.1-bfs
-pkgrel=1
+pkgrel=2
 _pkgdesc="NVIDIA drivers for linux-bfs."
 pkgdesc="$_pkgdesc"
 arch=('i686' 'x86_64')
