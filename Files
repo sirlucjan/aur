@@ -2,22 +2,14 @@
 ├── Files
 ├── README.md
 ├── linux-bfq
-│   ├── 0001-Bluetooth-btbcm-allow-btbcm_read_verbose_config-to-f.patch
-│   ├── 0004-block-loop-convert-to-per-device-workqueue.patch
-│   ├── 0005-block-loop-avoiding-too-many-pending-per-work-I-O.patch
 │   ├── PKGBUILD
-│   ├── bitmap-enable-booting-for-dm-md-raid1.patch
 │   ├── change-default-console-loglevel.patch
 │   ├── config
 │   ├── config.x86_64
 │   ├── linux-bfq.install
 │   └── linux-bfq.preset
 ├── linux-bfs
-│   ├── 0001-Bluetooth-btbcm-allow-btbcm_read_verbose_config-to-f.patch
-│   ├── 0004-block-loop-convert-to-per-device-workqueue.patch
-│   ├── 0005-block-loop-avoiding-too-many-pending-per-work-I-O.patch
 │   ├── PKGBUILD
-│   ├── bitmap-enable-booting-for-dm-md-raid1.patch
 │   ├── change-default-console-loglevel.patch
 │   ├── config
 │   ├── config.x86_64
@@ -190,4 +182,4 @@
     ├── guest.install
     └── host.install
 
-35 directories, 155 files
+35 directories, 147 files
