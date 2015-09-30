@@ -1,5 +1,5 @@
 KERNEL_NAME=-lqx-old
-KERNEL_VERSION=4.1.8-1-lqx-old
+KERNEL_VERSION=4.1.9-1-lqx-old
 
 # set a sane PATH to ensure that critical utils like depmod will be found
 export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
