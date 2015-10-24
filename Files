@@ -2,8 +2,6 @@
 ├── Files
 ├── README.md
 ├── linux-bfq
-│   ├── 0001-e1000e-Fix-tight-loop-implementation-of-systime-read.patch
-│   ├── 0001-netfilter-conntrack-use-nf_ct_tmpl_free-in-CT-synpro.patch
 │   ├── PKGBUILD
 │   ├── change-default-console-loglevel.patch
 │   ├── config
@@ -163,4 +161,4 @@
     ├── guest.install
     └── host.install
 
-35 directories, 128 files
+35 directories, 126 files
