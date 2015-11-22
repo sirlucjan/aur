@@ -8,140 +8,29 @@
 │   ├── config.x86_64
 │   ├── linux-bfq.install
 │   └── linux-bfq.preset
-├── linux-bfs
-│   ├── PKGBUILD
-│   ├── bfs464-cond_resched_lock_and cond_resched_softirq.patch
-│   ├── change-default-console-loglevel.patch
-│   ├── config
-│   ├── config.x86_64
-│   ├── linux-bfs.install
-│   └── linux-bfs.preset
-├── linux-bridge-pl
-│   ├── 0004-block-loop-convert-to-per-device-workqueue.patch
-│   ├── 0005-block-loop-avoiding-too-many-pending-per-work-I-O.patch
-│   ├── PKGBUILD
-│   ├── bfs462-nosubmit.patch
-│   ├── change-default-console-loglevel.patch
-│   ├── config
-│   ├── config.x86_64
-│   ├── linux-bridge-pl.install
-│   ├── linux-bridge-pl.preset
-│   └── uksm-0.1.2.4-beta-for-linux-v4.0.patch
 ├── linux-lqx
 │   ├── PKGBUILD
 │   ├── linux-lqx.install
 │   └── linux-lqx.preset
-├── linux-lqx-old
-│   ├── PKGBUILD
-│   ├── linux-lqx-old.install
-│   └── linux-lqx-old.preset
-├── linux-uksm
-│   ├── 0004-block-loop-convert-to-per-device-workqueue.patch
-│   ├── 0005-block-loop-avoiding-too-many-pending-per-work-I-O.patch
-│   ├── PKGBUILD
-│   ├── change-default-console-loglevel.patch
-│   ├── config
-│   ├── config.x86_64
-│   ├── linux-uksm.install
-│   ├── linux-uksm.preset
-│   └── uksm-0.1.2.4-beta-for-linux-v4.0.patch
-├── linux-uksm-ck
-│   ├── 0004-block-loop-convert-to-per-device-workqueue.patch
-│   ├── 0005-block-loop-avoiding-too-many-pending-per-work-I-O.patch
-│   ├── PKGBUILD
-│   ├── bfs462-nosubmit.patch
-│   ├── change-default-console-loglevel.patch
-│   ├── config
-│   ├── config.x86_64
-│   ├── linux-uksm-ck.install
-│   ├── linux-uksm-ck.preset
-│   └── uksm-0.1.2.4-beta-for-linux-v4.0.patch
 ├── nvidia-304xx-lqx
 │   ├── PKGBUILD
-│   ├── nv-drm.patch
 │   └── nvidia-304xx-lqx.install
-├── nvidia-304xx-lqx-old
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-304xx-lqx-old.install
 ├── nvidia-340xx-lqx
 │   ├── PKGBUILD
-│   ├── nv-drm.patch
 │   └── nvidia-340xx-lqx.install
-├── nvidia-340xx-lqx-old
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-340xx-lqx-old.install
 ├── nvidia-bfq
 │   ├── PKGBUILD
 │   └── nvidia-bfq.install
 ├── nvidia-bfq-304xx
 │   ├── PKGBUILD
-│   ├── nv-drm.patch
 │   └── nvidia-bfq-304xx.install
 ├── nvidia-bfq-340xx
 │   ├── PKGBUILD
-│   ├── nv-drm.patch
 │   └── nvidia-bfq-340xx.install
-├── nvidia-bfs
-│   ├── PKGBUILD
-│   └── nvidia-bfs.install
-├── nvidia-bfs-304xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-bfs-304xx.install
-├── nvidia-bfs-340xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-bfs-340xx.install
-├── nvidia-bridge-pl
-│   ├── PKGBUILD
-│   └── nvidia-bridge-pl.install
-├── nvidia-bridge-pl-304xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-bridge-pl-304xx.install
-├── nvidia-bridge-pl-340xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-bridge-pl-340xx.install
 ├── nvidia-lqx
 │   ├── PKGBUILD
 │   └── nvidia-lqx.install
-├── nvidia-lqx-old
-│   ├── PKGBUILD
-│   └── nvidia-lqx-old.install
-├── nvidia-uksm
-│   ├── PKGBUILD
-│   └── nvidia-uksm.install
-├── nvidia-uksm-304xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-uksm-304xx.install
-├── nvidia-uksm-340xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-uksm-340xx.install
-├── nvidia-uksm-ck
-│   ├── PKGBUILD
-│   └── nvidia-uksm-ck.install
-├── nvidia-uksm-ck-304xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-uksm-ck-304xx.install
-├── nvidia-uksm-ck-340xx
-│   ├── PKGBUILD
-│   ├── nv-drm.patch
-│   └── nvidia-uksm-ck-340xx.install
 ├── virtualbox-modules-bfq
-│   ├── PKGBUILD
-│   ├── guest.install
-│   └── host.install
-├── virtualbox-modules-bfs
-│   ├── PKGBUILD
-│   ├── guest.install
-│   └── host.install
-├── virtualbox-modules-bridge-pl
 │   ├── PKGBUILD
 │   ├── guest.install
 │   └── host.install
@@ -149,17 +38,9 @@
 │   ├── PKGBUILD
 │   ├── guest.install
 │   └── host.install
-├── virtualbox-modules-lqx-old
-│   ├── PKGBUILD
-│   ├── guest.install
-│   └── host.install
-├── virtualbox-modules-uksm
-│   ├── PKGBUILD
-│   ├── guest.install
-│   └── host.install
-└── virtualbox-modules-uksm-ck
+└── virtualbox-modules-lqx-old
     ├── PKGBUILD
     ├── guest.install
     └── host.install
 
-35 directories, 127 files
+11 directories, 32 files
