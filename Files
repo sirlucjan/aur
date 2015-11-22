@@ -34,13 +34,9 @@
 │   ├── PKGBUILD
 │   ├── guest.install
 │   └── host.install
-├── virtualbox-modules-lqx
-│   ├── PKGBUILD
-│   ├── guest.install
-│   └── host.install
-└── virtualbox-modules-lqx-old
+└── virtualbox-modules-lqx
     ├── PKGBUILD
     ├── guest.install
     └── host.install
 
-11 directories, 32 files
+10 directories, 29 files
