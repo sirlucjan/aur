@@ -2,6 +2,10 @@
 ├── Files
 ├── README.md
 ├── linux-bfq
+│   ├── 0004-sdhci-revert.patch
+│   ├── 0006-tpmdd-devel-v3-base-platform-fix-binding-for-drivers-without-probe-callback.patch
+│   ├── 0007-4.4-revert-btrfs.patch
+│   ├── 0008-4.4-revert-xfs.patch
 │   ├── PKGBUILD
 │   ├── change-default-console-loglevel.patch
 │   ├── config
@@ -39,4 +43,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 29 files
+10 directories, 33 files
