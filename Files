@@ -3,8 +3,6 @@
 ├── README.md
 ├── linux-bfq
 │   ├── 0004-sdhci-revert.patch
-│   ├── 0007-4.4-revert-btrfs.patch
-│   ├── 0008-4.4-revert-xfs.patch
 │   ├── PKGBUILD
 │   ├── change-default-console-loglevel.patch
 │   ├── config
@@ -44,4 +42,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 34 files
+10 directories, 32 files
