@@ -15,9 +15,11 @@
 ├── nvidia-304xx-lqx
 │   ├── PKGBUILD
 │   ├── disable-mtrr.patch
+│   ├── linux-4.6.patch
 │   └── nvidia-304xx-lqx.install
 ├── nvidia-340xx-lqx
 │   ├── PKGBUILD
+│   ├── linux-4.6.patch
 │   └── nvidia-340xx-lqx.install
 ├── nvidia-bfq
 │   ├── PKGBUILD
@@ -31,6 +33,7 @@
 │   └── nvidia-bfq-340xx.install
 ├── nvidia-lqx
 │   ├── PKGBUILD
+│   ├── linux-4.6.patch
 │   └── nvidia-lqx.install
 ├── virtualbox-modules-bfq
 │   ├── PKGBUILD
@@ -41,4 +44,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 31 files
+10 directories, 34 files
