@@ -391,10 +391,11 @@ package_linux-bfq-headers() {
 		cp ${i} "${pkgdir}/usr/lib/modules/${_kernver}/build/${i}"
 	done
 	
+	# add objtool for external module building and enabled VALIDATION_STACK option
 	if [ -f tools/objtool/objtool ];  then
-      mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/tools/objtool"
-      cp -a tools/objtool/objtool ${pkgdir}/usr/lib/modules/${_kernver}/build/tools/objtool/ 
-      fi
+        mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/tools/objtool"
+        cp -a tools/objtool/objtool ${pkgdir}/usr/lib/modules/${_kernver}/build/tools/objtool/ 
+        fi
 
 	chown -R root.root "${pkgdir}/usr/lib/modules/${_kernver}/build"
 	find "${pkgdir}/usr/lib/modules/${_kernver}/build" -type d -exec chmod 755 {} \;
