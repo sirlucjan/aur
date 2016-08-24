@@ -22,8 +22,6 @@
 │   ├── linux-4.6.patch
 │   └── nvidia-340xx-lqx.install
 ├── nvidia-bfq
-│   ├── 0001-linux-4.7-i686.patch
-│   ├── 0001-linux-4.7-x86_64.patch
 │   ├── PKGBUILD
 │   └── nvidia-bfq.install
 ├── nvidia-bfq-304xx
@@ -36,8 +34,6 @@
 │   ├── linux-4.6.patch
 │   └── nvidia-bfq-340xx.install
 ├── nvidia-lqx
-│   ├── 0001-linux-4.7-i686.patch
-│   ├── 0001-linux-4.7-x86_64.patch
 │   ├── PKGBUILD
 │   └── nvidia-lqx.install
 ├── virtualbox-modules-bfq
@@ -49,4 +45,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 39 files
+10 directories, 35 files
