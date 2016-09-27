@@ -19,7 +19,6 @@
 │   └── nvidia-304xx-lqx.install
 ├── nvidia-340xx-lqx
 │   ├── PKGBUILD
-│   ├── linux-4.6.patch
 │   └── nvidia-340xx-lqx.install
 ├── nvidia-bfq
 │   ├── PKGBUILD
@@ -31,7 +30,6 @@
 │   └── nvidia-bfq-304xx.install
 ├── nvidia-bfq-340xx
 │   ├── PKGBUILD
-│   ├── linux-4.6.patch
 │   └── nvidia-bfq-340xx.install
 ├── nvidia-lqx
 │   ├── PKGBUILD
@@ -45,4 +43,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 35 files
+10 directories, 33 files
