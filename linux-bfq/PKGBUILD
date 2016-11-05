@@ -53,7 +53,7 @@ pkgname=('linux-bfq' 'linux-bfq-headers' 'linux-bfq-docs')
 _kernelname=-bfq
 _srcname=linux-4.8
 pkgver=4.8.6
-pkgrel=1
+pkgrel=2
 arch=('i686' 'x86_64')
 url="http://algo.ing.unimo.it"
 license=('GPL2')
@@ -76,7 +76,9 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "http://repo-ck.com/source/gcc_patch/${_gcc_patch}.gz"
         'linux-bfq.preset'
         'change-default-console-loglevel.patch'
-        'config' 'config.x86_64')
+        'config' 'config.x86_64'
+        '0005-BFQ-Fix.patch'
+        '0006-BFQ-Fix.patch')
         
 prepare() {
     cd ${_srcname}
@@ -93,7 +95,7 @@ prepare() {
 
     ### Patch source with BFQ
         msg "Patching source with BFQ patches"
-        for p in "${srcdir}"/000{1,2,3,4}-*BFQ*.patch; do
+        for p in "${srcdir}"/000{1,2,3,4,5,6}-*BFQ*.patch; do
         msg " $p"
         patch -Np1 -i "$p"
         done
@@ -455,7 +457,9 @@ sha512sums=('a48a065f21e1c7c4de4cf8ca47b8b8d9a70f86b64e7cfa6e01be490f78895745b9c
             '607c0fa70375bff2f51387c4984e6f2da18c786a58281ab5c28f6b49c6da22578832afa96503f26a18575ffed677b2f9522a822b5db856b76c4144dd5b59ff6b'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
             '2f63a2f373a1b97cba7ceee112a1ee69a90f8448dda2487b7ac91e669bc6b43febec0f584100cd27f7ef3be53fb75ed3b027ad881220cdb06e57fe93f214b4eb'
-            '8cfc9f98fd12333b035ec7bef53b4c3af2906e9d997aa41bd938298a669c59b51e8f554599e452f03f6e09a580ca9ca459ec29e31cec80866f4ffc2f477f79c6')
+            '8cfc9f98fd12333b035ec7bef53b4c3af2906e9d997aa41bd938298a669c59b51e8f554599e452f03f6e09a580ca9ca459ec29e31cec80866f4ffc2f477f79c6'
+            '3889679e288d51f6fecc7ed6581ccde34acbf1e4861f5c9ca237a1ad13158502757d3fc457d7b6caf1c8c99c9dba842265004154a71cffb8ec14e1030e49e312'
+            '3c3f3b6407d9a1a63cd91c2b5c35e6c932afa5bf33f1b2e8a530dbd9eacda8c8f956616c4cc9228657624da58e354ba5714252237d84ff3386fd65cf44f06ddc')
             
 validpgpkeys=(
               'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
