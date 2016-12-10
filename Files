@@ -9,7 +9,6 @@
 │   ├── change-default-console-loglevel.patch
 │   ├── config
 │   ├── config.x86_64
-│   ├── fix_race_condition_in_packet_set_ring.diff
 │   ├── linux.install
 │   ├── linux.preset
 │   └── net_handle_no_dst_on_skb_in_icmp6_send.patch
@@ -47,4 +46,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 37 files
+10 directories, 36 files
