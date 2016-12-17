@@ -3,8 +3,7 @@
 ├── README.md
 ├── linux-bfq
 │   ├── 0001-x86-fpu-Fix-invalid-FPU-ptrace-state-after-execve.patch
-│   ├── 0005-BFQ-Fix.patch
-│   ├── 0006-BFQ-Fix.patch
+│   ├── 0005-BFQ-update-to-v8r6.patch
 │   ├── 99-linux.hook
 │   ├── PKGBUILD
 │   ├── change-default-console-loglevel.patch
@@ -47,4 +46,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 37 files
+10 directories, 36 files
