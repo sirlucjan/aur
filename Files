@@ -2,11 +2,9 @@
 ├── Files
 ├── README.md
 ├── linux-bfq
-│   ├── 0005-BFQ-update-to-v8r8.patch
 │   ├── 99-linux.hook
 │   ├── PKGBUILD
-│   ├── change-default-console-loglevel.patch
-│   ├── config
+│   ├── config.i686
 │   ├── config.x86_64
 │   ├── linux.install
 │   └── linux.preset
@@ -26,15 +24,15 @@
 │   └── nvidia-340xx-lqx.install
 ├── nvidia-bfq
 │   ├── PKGBUILD
+│   ├── kernel_4.10.patch
 │   └── nvidia-bfq.install
 ├── nvidia-bfq-304xx
 │   ├── PKGBUILD
-│   ├── disable-mtrr.patch
-│   ├── drm-driver-legacy.patch
+│   ├── kernel_4.10.patch
 │   └── nvidia-bfq-304xx.install
 ├── nvidia-bfq-340xx
+│   ├── 4.10.0_kernel.patch
 │   ├── PKGBUILD
-│   ├── fs52243.patch
 │   └── nvidia-bfq-340xx.install
 ├── nvidia-lqx
 │   ├── PKGBUILD
@@ -48,4 +46,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 38 files
+10 directories, 36 files
