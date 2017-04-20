@@ -2,8 +2,6 @@
 ├── Files
 ├── README.md
 ├── linux-bfq
-│   ├── 0005-BFQ-update-to-v8r9.patch
-│   ├── 0006-BFQ-update-to-v8r10.patch
 │   ├── 90-linux.hook
 │   ├── PKGBUILD
 │   ├── config.i686
@@ -17,12 +15,11 @@
 │   └── linux.preset
 ├── nvidia-304xx-lqx
 │   ├── PKGBUILD
-│   ├── disable-mtrr.patch
-│   ├── drm-driver-legacy.patch
+│   ├── kernel_4.10.patch
 │   └── nvidia-304xx-lqx.install
 ├── nvidia-340xx-lqx
+│   ├── 4.10.0_kernel.patch
 │   ├── PKGBUILD
-│   ├── fs52243.patch
 │   └── nvidia-340xx-lqx.install
 ├── nvidia-bfq
 │   ├── PKGBUILD
@@ -38,6 +35,7 @@
 │   └── nvidia-bfq-340xx.install
 ├── nvidia-lqx
 │   ├── PKGBUILD
+│   ├── kernel_4.10.patch
 │   └── nvidia-lqx.install
 ├── virtualbox-modules-bfq
 │   ├── PKGBUILD
@@ -48,4 +46,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 38 files
+10 directories, 36 files
