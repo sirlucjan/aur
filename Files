@@ -2,7 +2,6 @@
 ├── Files
 ├── README.md
 ├── linux-bfq
-│   ├── 0005-BFQ-update-to-v8r11.patch
 │   ├── 90-linux.hook
 │   ├── PKGBUILD
 │   ├── config.i686
@@ -47,4 +46,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 37 files
+10 directories, 36 files
