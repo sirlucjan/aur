@@ -23,7 +23,6 @@
 │   └── nvidia-340xx-lqx.install
 ├── nvidia-bfq
 │   ├── PKGBUILD
-│   ├── kernel_4.10.patch
 │   └── nvidia-bfq.install
 ├── nvidia-bfq-304xx
 │   ├── PKGBUILD
@@ -35,7 +34,6 @@
 │   └── nvidia-bfq-340xx.install
 ├── nvidia-lqx
 │   ├── PKGBUILD
-│   ├── kernel_4.10.patch
 │   └── nvidia-lqx.install
 ├── virtualbox-modules-bfq
 │   ├── PKGBUILD
@@ -46,4 +44,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 36 files
+10 directories, 34 files
