@@ -19,14 +19,16 @@
 │   ├── PKGBUILD
 │   ├── drm-driver-legacy.patch
 │   ├── kernel_4.10.patch
-│   ├── nvidia-304xx-lqx.install
-│   └── unfuck-4.11_for_304xx.patch
+│   ├── kernel_4.11.patch
+│   ├── kernel_4.12.patch
+│   └── nvidia-304xx-lqx.install
 ├── nvidia-340xx-lqx
 │   ├── 4.10.0_kernel.patch
+│   ├── 4.11.0_kernel.patch
+│   ├── 4.12.0_kernel.patch
 │   ├── PKGBUILD
 │   ├── fs52243.patch
-│   ├── nvidia-340xx-lqx.install
-│   └── unfuck_4.11_for_340xx.patch
+│   └── nvidia-340xx-lqx.install
 ├── nvidia-bfq
 │   ├── PKGBUILD
 │   └── nvidia-bfq.install
@@ -54,4 +56,4 @@
     ├── guest.install
     └── host.install
 
-10 directories, 44 files
+10 directories, 46 files
