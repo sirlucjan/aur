@@ -13,13 +13,24 @@
 │   ├── PKGBUILD
 │   ├── linux.install
 │   └── linux.preset
+├── linux-uksm
+│   ├── 90-linux.hook
+│   ├── PKGBUILD
+│   ├── config.i686
+│   ├── config.x86_64
+│   ├── linux.install
+│   └── linux.preset
 ├── virtualbox-modules-bfq
 │   ├── PKGBUILD
 │   ├── guest.install
 │   └── host.install
-└── virtualbox-modules-lqx
+├── virtualbox-modules-lqx
+│   ├── PKGBUILD
+│   ├── guest.install
+│   └── host.install
+└── virtualbox-modules-uksm
     ├── PKGBUILD
     ├── guest.install
     └── host.install
 
-4 directories, 18 files
+6 directories, 27 files

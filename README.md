@@ -4,4 +4,6 @@
 
 - linux-lqx
 
+- linux-uksm
+
 
