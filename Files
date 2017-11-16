@@ -4,8 +4,7 @@
 ├── linux-bfq
 │   ├── 90-linux.hook
 │   ├── PKGBUILD
-│   ├── config.i686
-│   ├── config.x86_64
+│   ├── config
 │   ├── linux.install
 │   └── linux.preset
 ├── linux-lqx
@@ -16,8 +15,7 @@
 ├── linux-uksm
 │   ├── 90-linux.hook
 │   ├── PKGBUILD
-│   ├── config.i686
-│   ├── config.x86_64
+│   ├── config
 │   ├── linux.install
 │   └── linux.preset
 ├── virtualbox-modules-bfq
@@ -33,4 +31,4 @@
     ├── guest.install
     └── host.install
 
-6 directories, 27 files
+6 directories, 25 files

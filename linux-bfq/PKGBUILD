@@ -53,7 +53,7 @@ pkgbase=linux-bfq
 _srcname=linux-4.11
 pkgver=4.11.12
 pkgrel=4
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="http://algo.ing.unimo.it"
 license=('GPL2')
 options=('!strip')
@@ -76,7 +76,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v4.x/${_srcname}.tar.xz"
         "${_bfqpath}/0004-blk-bfq-turn-BFQ-${_bfqrel}-for-4.11.0-into-BFQ-${_bfqver}-for.patch"
         "http://repo-ck.com/source/gcc_patch/${_gcc_patch}.gz"
          # the main kernel config files
-        'config.i686' 'config.x86_64'
+        'config'
          # pacman hook for initramfs regeneration
         '90-linux.hook'
          # standard config files for mkinitcpio ramdisk
@@ -109,7 +109,7 @@ prepare() {
 	msg "Running make mrproper to clean source tree"
 	make mrproper
 
-	cat "${srcdir}/config.${CARCH}" > ./.config
+	cat "${srcdir}/config" > ./.config
       
     ### Optionally set tickrate to 1000 
 	if [ -n "$_1k_HZ_ticks" ]; then
@@ -139,23 +139,21 @@ prepare() {
 		sed -i "s|CONFIG_LOCALVERSION_AUTO=.*|CONFIG_LOCALVERSION_AUTO=n|" ./.config
 	fi
 
-	### Optionally disable NUMA since >99% of users have mono-socket systems.
-	# For more, see: https://bugs.archlinux.org/task/31187
-	if [ -n "$_NUMAdisable" ]; then
-		if [ "${CARCH}" = "x86_64" ]; then
-			msg "Disabling NUMA from kernel config..."
-			sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
-				-i -e '/CONFIG_AMD_NUMA=y/d' \
-				-i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
-				-i -e '/CONFIG_NODES_SPAN_OTHER_NODES=y/d' \
-				-i -e '/# CONFIG_NUMA_EMU is not set/d' \
-				-i -e '/CONFIG_NODES_SHIFT=6/d' \
-				-i -e '/CONFIG_NEED_MULTIPLE_NODES=y/d' \
-				-i -e '/# CONFIG_MOVABLE_NODE is not set/d' \
-				-i -e '/CONFIG_USE_PERCPU_NUMA_NODE_ID=y/d' \
-				-i -e '/CONFIG_ACPI_NUMA=y/d' ./.config
-		fi
-	fi
+	### Optionally disable NUMA for 64-bit kernels only
+        # (x86 kernels do not support NUMA)
+        if [ -n "$_NUMAdisable" ]; then
+            msg "Disabling NUMA from kernel config..."
+            sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
+                -i -e '/CONFIG_AMD_NUMA=y/d' \
+                -i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
+                -i -e '/CONFIG_NODES_SPAN_OTHER_NODES=y/d' \
+                -i -e '/# CONFIG_NUMA_EMU is not set/d' \
+                -i -e '/CONFIG_NODES_SHIFT=6/d' \
+                -i -e '/CONFIG_NEED_MULTIPLE_NODES=y/d' \
+                -i -e '/# CONFIG_MOVABLE_NODE is not set/d' \
+                -i -e '/CONFIG_USE_PERCPU_NUMA_NODE_ID=y/d' \
+                -i -e '/CONFIG_ACPI_NUMA=y/d' ./.config
+        fi
 
 	### Set extraversion to pkgrel
 	sed -ri "s|^(EXTRAVERSION =).*|\1 -${pkgrel}|" Makefile
@@ -201,7 +199,7 @@ prepare() {
 	yes "" | make config >/dev/null
 
 	### Save configuration for later reuse
-	cat .config > "${startdir}/config.${CARCH}.last"
+	cat .config > "${startdir}/config.last"
 }
 
 build() {
@@ -435,7 +433,6 @@ sha512sums=('6610eed97ffb7207c71771198c36179b8244ace7222bebb109507720e26c5f17d91
             'be1b94ac52ed519243aa1889bd392dd1e68ec0a2fdae4bf5d2c9fa62a33cad94f1ff6db26e66cd4de60a4e07ab7d2cbad6b3f9a625ddeb909702f5bf39a2368a'
             'cd82bce44c7d5a8148e69ae8bab3ea10df1b65bb97a6494c0c0ffe0e5b6f7e6eb08d8c2c3597e31e3d88ba908d36ab749fc97aaccf51857bbd29a697395789c9'
             '77d80d50d8c4323ed36fd2097ba9f6b49bb8d7cae59d32ffa76b309758a7e9f972d26fedd77046d88ce2691bb01a07909f8bdc34ba214414be3bc030ee31994d'
-            '4030c799ee2fbf681aacd8396dab577162b9d34900c879c963ccb260fe40dc3fa1974cbe944ff1685cef2f0751528a3c5ba195c4ec6fca2b7b405e4f061f8e76'
             '57addf780fc68d8e2914514e47d2edd27600cc0d1bf0c7d3786bc3e16ec9c6527eb8e9d95f156da8b77c11a53ac2a8f0d23360547a26350ebc3dca93721ebc42'
             'd6faa67f3ef40052152254ae43fee031365d0b1524aa0718b659eb75afc21a3f79ea8d62d66ea311a800109bed545bc8f79e8752319cd378eef2cbd3a09aba22'
             '2dc6b0ba8f7dbf19d2446c5c5f1823587de89f4e28e9595937dd51a87755099656f2acec50e3e2546ea633ad1bfd1c722e0c2b91eef1d609103d8abdc0a7cbaf'
