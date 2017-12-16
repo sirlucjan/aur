@@ -30,12 +30,8 @@
 │   ├── guest.install
 │   └── host.install
 ├── virtualbox-modules-lqx
-│   ├── PKGBUILD
-│   ├── guest.install
-│   └── host.install
+│   └── PKGBUILD
 └── virtualbox-modules-uksm
-    ├── PKGBUILD
-    ├── guest.install
-    └── host.install
+    └── PKGBUILD
 
-6 directories, 32 files
+6 directories, 28 files
