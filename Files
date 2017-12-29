@@ -15,7 +15,6 @@
 │   ├── linux.install
 │   └── linux.preset
 ├── linux-uksm
-│   ├── 0001-ALSA-usb-audio-Fix-the-missing-ctl-name-suffix-at-pa.patch
 │   ├── 0001-Revert-xfrm-Fix-stack-out-of-bounds-read-in-xfrm_sta.patch
 │   ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
 │   ├── 0001-e1000e-Fix-e1000_check_for_copper_link_ich8lan-retur.patch
@@ -38,4 +37,4 @@
 └── virtualbox-modules-uksm
     └── PKGBUILD
 
-6 directories, 32 files
+6 directories, 31 files
