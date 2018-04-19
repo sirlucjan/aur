@@ -14,7 +14,6 @@
 │   ├── 0004-Fix-vboxguest-on-guests-with-more-than-4G-RAM.patch
 │   ├── 0005-Revert-drm-amd-display-disable-CRTCs-with-NULL-FB-on.patch
 │   ├── 0006-net-aquantia-Regression-on-reset-with-1.x-firmware.patch
-│   ├── 0007-media-v4l2-core-fix-size-of-devnode_nums-bitarray.patch
 │   ├── 60-linux.hook
 │   ├── 90-linux.hook
 │   ├── 99-linux.hook
@@ -28,4 +27,4 @@
 └── virtualbox-modules-uksm
     └── PKGBUILD
 
-4 directories, 24 files
+4 directories, 23 files
