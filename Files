@@ -9,8 +9,8 @@
 │   └── PKGBUILD
 ├── linux-uksm
 │   ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
-│   ├── 0002-ACPI-watchdog-Prefer-iTCO_wdt-on-Lenovo-Z50-70.patch
-│   ├── 0003-Revert-drm-i915-edp-Allow-alternate-fixed-mode-for-e.patch
+│   ├── 0002-Revert-drm-i915-edp-Allow-alternate-fixed-mode-for-e.patch
+│   ├── 0003-ACPI-watchdog-Prefer-iTCO_wdt-always-when-WDAT-table.patch
 │   ├── 60-linux.hook
 │   ├── 90-linux.hook
 │   ├── 99-linux.hook
