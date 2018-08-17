@@ -9,9 +9,7 @@
 │   └── PKGBUILD
 ├── linux-uksm
 │   ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
-│   ├── 0002-Revert-drm-i915-edp-Allow-alternate-fixed-mode-for-e.patch
-│   ├── 0003-ACPI-watchdog-Prefer-iTCO_wdt-always-when-WDAT-table.patch
-│   ├── 0004-mac80211-disable-BHs-preemption-in-ieee80211_tx_cont.patch
+│   ├── 0002-Increase-timeout-in-lspcon_wait_mode.patch
 │   ├── 60-linux.hook
 │   ├── 90-linux.hook
 │   ├── 99-linux.hook
@@ -25,4 +23,4 @@
 └── virtualbox-modules-uksm
     └── PKGBUILD
 
-4 directories, 21 files
+4 directories, 19 files
