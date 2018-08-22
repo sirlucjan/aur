@@ -9,7 +9,7 @@
 │   └── PKGBUILD
 ├── linux-uksm
 │   ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
-│   ├── 0002-Increase-timeout-in-lspcon_wait_mode.patch
+│   ├── 0002-drm-i915-Increase-LSPCON-timeout.patch
 │   ├── 60-linux.hook
 │   ├── 90-linux.hook
 │   ├── 99-linux.hook
