@@ -1,8 +1,8 @@
 # Kernels and modules:
 
-- linux-bfq
-
 - linux-lqx
+
+- linux-next-git
 
 - linux-uksm
 
