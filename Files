@@ -16,7 +16,6 @@
 │   ├── linux.preset
 │   └── PKGBUILD
 ├── linux-uksm
-│   ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
 │   ├── 60-linux.hook
 │   ├── 90-linux.hook
 │   ├── 99-linux.hook
@@ -30,4 +29,4 @@
 └── virtualbox-modules-uksm
     └── PKGBUILD
 
-5 directories, 25 files
+5 directories, 24 files
