@@ -1,5 +1,11 @@
 # Kernels and modules:
 
+- linux-lqx
+
+- linux-next-git
+
+- linux-uksm
+
 ###### linux-lqx incorporates:
 
 * [liquorix patchset](https://github.com/damentz/liquorix-package) - authored by Steven Barrett
