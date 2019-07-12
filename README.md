@@ -1,15 +1,20 @@
 # Kernels and modules:
 
+- linux-aufs
+
 - linux-lqx
 
 - linux-next-git
 
 - linux-uksm
 
+###### linux-aufs incorporates:
+
+* [AUFS](https://github.com/sfjro/aufs5-standalone) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
+
 ###### linux-lqx incorporates:
 
 * [liquorix patchset](https://github.com/damentz/liquorix-package) - authored by Steven Barrett
-
 
 ###### linux-uksm incorporates:
 
