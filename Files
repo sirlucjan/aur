@@ -36,9 +36,7 @@
 │   └── PKGBUILD
 ├── virtualbox-modules-bfq
 │   └── PKGBUILD
-├── virtualbox-modules-lqx
-│   └── PKGBUILD
-└── virtualbox-modules-uksm
+└── virtualbox-modules-lqx
     └── PKGBUILD
 
-8 directories, 33 files
+7 directories, 32 files
