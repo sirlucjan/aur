@@ -58,7 +58,7 @@ _lqxpatchname=liquorix-package
 _lqxpatchrel=4
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
 pkgbase=linux-lqx
-pkgver=5.2.4_2
+pkgver=5.2.4.lqx2
 pkgrel=1
 arch=('x86_64')
 url="http://liquorix.net/"
@@ -83,7 +83,7 @@ _kernelname=${pkgbase#linux}
 : ${_kernelname:=-lqx}
 
 pkgver() {
-  printf ${_major}.${_minor}_${_patchrel}
+  printf ${_major}.${_minor}.lqx${_patchrel}
 }
 
 prepare() {
