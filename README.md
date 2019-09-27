@@ -1,3 +1,7 @@
+[![AUR package](https://repology.org/badge/version-for-repo/aur/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
+
+[![AUR package](https://repology.org/badge/version-for-repo/aur/linux-aufs.svg)](https://repology.org/project/linux-aufs/versions)
+
 # Kernels and modules:
 
 - linux-aufs
