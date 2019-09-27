@@ -1,7 +1,3 @@
-[![AUR package](https://repology.org/badge/version-for-repo/aur/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
-
-[![AUR package](https://repology.org/badge/version-for-repo/aur/linux-aufs.svg)](https://repology.org/project/linux-aufs/versions)
-
 # Kernels and modules:
 
 - linux-aufs
@@ -29,6 +25,8 @@
 * [LL-patches](https://github.com/sirlucjan/kernel-patches/tree/master/5.1/ll-patches) / [LL-patches](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.1/ll-patches) - specific patches authored by Piotr Gorski
 
 * [bfq-lucjan-dev](https://github.com/sirlucjan/bfq-mq-lucjan/commits/dev-bfq-on-5.2-lucjan) - latest fixes authored by Paolo Valente and BFQ Team and forked by Piotr Gorski
+
+[![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
 
 ***
 # Download:
