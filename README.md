@@ -4,7 +4,11 @@
 
 - linux-bfq
 
+[![Packaging status](https://repology.org/badge/vertical-allrepos/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
+
 - linux-lqx
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/linux-lqx.svg)](https://repology.org/project/linux-lqx/versions)
 
 - linux-next-git
 
