@@ -31,6 +31,14 @@
 │   ├── linux.install
 │   ├── linux.preset
 │   └── PKGBUILD
+├── linux-uksm
+│   ├── 60-linux.hook
+│   ├── 90-linux.hook
+│   ├── 99-linux.hook
+│   ├── config
+│   ├── linux.install
+│   ├── linux.preset
+│   └── PKGBUILD
 ├── README.md
 ├── virtualbox-modules-aufs
 │   └── PKGBUILD
@@ -39,4 +47,4 @@
 └── virtualbox-modules-lqx
     └── PKGBUILD
 
-7 directories, 32 files
+8 directories, 39 files
