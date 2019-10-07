@@ -32,6 +32,10 @@
 
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
 
+###### Some patches for BFQ conflict with patches for BFQ-dev.
+
+###### To use linux-bfq smoothly apply bfq-reverts before bfq-dev patch. Otherwise the kernel will not compile.
+
 ###### linux-lqx incorporates:
 
 * [liquorix patchset](https://github.com/damentz/liquorix-package) - authored by Steven Barrett
