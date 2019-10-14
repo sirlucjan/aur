@@ -72,3 +72,20 @@ cd /some_path/aur/package_name
 makepkg -srci
 
 ```
+
+# Enable bfq
+
+~~For now, you can use `sudo tee /sys/block/sda/queue/scheduler <<< bfq` to enable "bfq".~~
+
+~~You can also add this to file `60-schedulers.rules`:~~
+
+```
+# Non-rotational disks
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="bfq"
+# Rotational disks
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+```
+
+~~and run a command `sudo udevadm control --reload && sudo udevadm trigger`~~
+
+For now, bfq is enabled by default! [(since 5.0-lucjan-ll1-rc1.patch and LL-elevator-set-default-scheduler-to-bfq-for-blk-mq.patch)](https://github.com/sirlucjan/kernel-patches/blob/master/5.0/ll-patches/0002-LL-elevator-set-default-scheduler-to-bfq-for-blk-mq.patch)
