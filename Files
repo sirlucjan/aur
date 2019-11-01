@@ -7,11 +7,6 @@
 │   ├── config
 │   └── PKGBUILD
 ├── linux-lqx
-│   ├── 60-linux.hook
-│   ├── 90-linux.hook
-│   ├── 99-linux.hook
-│   ├── linux.install
-│   ├── linux.preset
 │   └── PKGBUILD
 ├── linux-next-git
 │   ├── 60-linux.hook
@@ -39,4 +34,4 @@
 └── virtualbox-modules-uksm
     └── PKGBUILD
 
-9 directories, 30 files
+9 directories, 25 files
