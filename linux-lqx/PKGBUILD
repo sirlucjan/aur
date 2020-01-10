@@ -55,7 +55,7 @@ _lqxpatchname=liquorix-package
 _lqxpatchrel=10
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
 pkgbase=linux-lqx
-pkgver=5.4.10_1
+pkgver=5.4.10.1
 pkgrel=1
 pkgdesc='Linux LQX'
 arch=('x86_64')
@@ -74,7 +74,7 @@ export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 
 pkgver() {
-  printf ${_major}.${_minor}_${_patchrel}
+  printf ${_major}.${_minor}.${_patchrel}
 }
 
 prepare() {
