@@ -52,7 +52,7 @@ _muqss_disable=
 _major=5.4
 _srcname=linux-${_major}
 _lqxpatchname=liquorix-package
-_lqxpatchrel=12
+_lqxpatchrel=13
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
 pkgbase=linux-lqx
 pkgver=5.4.11.1
@@ -329,7 +329,7 @@ done
 
 sha512sums=('9f60f77e8ab972b9438ac648bed17551c8491d6585a5e85f694b2eaa4c623fbc61eb18419b2656b6795eac5deec0edaa04547fc6723fbda52256bd7f3486898f'
             'SKIP'
-            'eac6e270e818d5cf7dee54e032b3e623e19ffcbcbe2f91cb8f981e39526091666dc52043389d3f5efe1ad702c65239d739557f46f41a90099911418d68d9d8c5')
+            'e7135fd5a14ad16a5ba454d6f774252072086f7edbdf16a4e8237ee8ed1ebefb15ca1f44532a912542b9d7ee60c6a0bfa47032879fa7bcf86e329649a7c48e3e')
 
 validpgpkeys=(
     'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
