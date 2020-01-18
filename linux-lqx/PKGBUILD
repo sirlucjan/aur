@@ -56,7 +56,7 @@ _lqxpatchrel=16
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
 pkgbase=linux-lqx
 pkgver=5.4.13.1
-pkgrel=1
+pkgrel=2
 pkgdesc='Linux LQX'
 arch=('x86_64')
 url="http://liquorix.net/"
@@ -89,11 +89,11 @@ prepare() {
         local _patchrx='^zen/v\d+\.\d+\.\d+-lqx\d+.patch$'
         local _patchfolder="${srcdir}/${_lqxpatchver}/linux-liquorix/debian/patches"
         local _patchpath="$(grep -P "$_patchrx" "$_patchfolder/series")"
-        msg2 "Patching sources with ${_patchpath#*/}"
+        echo "Patching sources with ${_patchpath#*/}"
         patch -Np1 -i "$_patchfolder/$_patchpath"
 
     ### Setting version
-        msg2 "Setting version..."
+        echo "Setting version..."
         scripts/setlocalversion --save-scmversion
         echo "-$pkgrel" > localversion.10-pkgrel
         echo "${pkgbase#linux}" > localversion.20-pkgname
@@ -104,24 +104,24 @@ prepare() {
             src="${src%%::*}"
             src="${src##*/}"
             [[ $src = *.patch ]] || continue
-        msg2 "Applying patch $src..."
+        echo "Applying patch $src..."
         patch -Np1 < "../$src"
         done
 
     ### Setting config
-        msg2 "Setting config..."
+        echo "Setting config..."
         cat ${srcdir}/${_lqxpatchver}/linux-liquorix/debian/config/kernelarch-x86/config-arch-64 >./.config
         make olddefconfig
 
     ### Prepared version
         make -s kernelrelease > version
-        msg2 "Prepared %s version %s" "$pkgbase" "$(<version)"
+        echo "Prepared %s version %s" "$pkgbase" "$(<version)"
 
     ### Optionally use running kernel's config
 	# code originally by nous; http://aur.archlinux.org/packages.php?ID=40191
 	if [ -n "$_use_current" ]; then
 		if [[ -s /proc/config.gz ]]; then
-			msg2 "Extracting config from /proc/config.gz..."
+			echo "Extracting config from /proc/config.gz..."
 			# modprobe configs
 			zcat /proc/config.gz > ./.config
 		else
@@ -134,14 +134,14 @@ prepare() {
 
     ### Disable MUQSS
         if [ -n "$_muqss_disable" ]; then
-        msg2 "Disabling MUQSS..."
+        echo "Disabling MUQSS..."
         sed -i -e s'/^CONFIG_SCHED_MUQSS=y/# CONFIG_SCHED_MUQSS is not set/' ./.config	
         fi
 
     ### Optionally disable NUMA for 64-bit kernels only
         # (x86 kernels do not support NUMA)
         if [ -n "$_NUMAdisable" ]; then
-            msg2 "Disabling NUMA from kernel config..."
+            echo "Disabling NUMA from kernel config..."
             sed -i -e 's/CONFIG_NUMA=y/# CONFIG_NUMA is not set/' \
                 -i -e '/CONFIG_AMD_NUMA=y/d' \
                 -i -e '/CONFIG_X86_64_ACPI_NUMA=y/d' \
@@ -158,10 +158,10 @@ prepare() {
         # See https://aur.archlinux.org/packages/modprobed-db
         if [ -n "$_localmodcfg" ]; then
             if [ -f $HOME/.config/modprobed.db ]; then
-            msg2 "Running Steven Rostedt's make localmodconfig now"
+            echo "Running Steven Rostedt's make localmodconfig now"
             make LSMOD=$HOME/.config/modprobed.db localmodconfig
         else
-            msg2 "No modprobed.db data found"
+            echo "No modprobed.db data found"
             exit
             fi
         fi
@@ -199,7 +199,7 @@ _package() {
   local kernver="$(<version)"
   local modulesdir="$pkgdir/usr/lib/modules/$kernver"
 
-  msg2 "Installing boot image..."
+  echo "Installing boot image..."
   # systemd expects to find the kernel here to allow hibernation
   # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
   install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
@@ -207,13 +207,13 @@ _package() {
   # Used by mkinitcpio to name the kernel
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
-  msg2 "Installing modules..."
+  echo "Installing modules..."
   make INSTALL_MOD_PATH="$pkgdir/usr" modules_install
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
 
-  msg2 "Fixing permissions..."
+  echo "Fixing permissions..."
   chmod -Rc u=rwX,go=rX "$pkgdir"
 }
 
@@ -224,7 +224,7 @@ _package-headers() {
   cd $_srcname
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
-  msg2 "Installing build files..."
+  echo "Installing build files..."
   install -Dt "$builddir" -m644 .config Makefile Module.symvers System.map \
     localversion.* version vmlinux
   install -Dt "$builddir/kernel" -m644 kernel/Makefile
@@ -237,7 +237,7 @@ _package-headers() {
   # add xfs and shmem for aufs building
   mkdir -p "$builddir"/{fs/xfs,mm}
 
-  msg2 "Installing headers..."
+  echo "Installing headers..."
   cp -t "$builddir" -a include
   cp -t "$builddir/arch/x86" -a arch/x86/include
   install -Dt "$builddir/arch/x86/kernel" -m644 arch/x86/kernel/asm-offsets.s
@@ -253,10 +253,10 @@ _package-headers() {
   install -Dt "$builddir/drivers/media/dvb-frontends" -m644 drivers/media/dvb-frontends/*.h
   install -Dt "$builddir/drivers/media/tuners" -m644 drivers/media/tuners/*.h
 
-  msg2 "Installing KConfig files..."
+  echo "Installing KConfig files..."
   find . -name 'Kconfig*' -exec install -Dm644 {} "$builddir/{}" \;
 
-  msg2 "Removing unneeded architectures..."
+  echo "Removing unneeded architectures..."
   local arch
   for arch in "$builddir"/arch/*/; do
     [[ $arch = */x86/ ]] && continue
@@ -264,16 +264,16 @@ _package-headers() {
     rm -r "$arch"
   done
 
-  msg2 "Removing documentation..."
+  echo "Removing documentation..."
   rm -r "$builddir/Documentation"
 
-  msg2 "Removing broken symlinks..."
+  echo "Removing broken symlinks..."
   find -L "$builddir" -type l -printf 'Removing %P\n' -delete
 
-  msg2 "Removing loose objects..."
+  echo "Removing loose objects..."
   find "$builddir" -type f -name '*.o' -printf 'Removing %P\n' -delete
 
-  msg2 "Stripping build tools..."
+  echo "Stripping build tools..."
   local file
   while read -rd '' file; do
     case "$(file -bi "$file")" in
@@ -288,11 +288,11 @@ _package-headers() {
     esac
   done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
 
-  msg2 "Adding symlink..."
+  echo "Adding symlink..."
   mkdir -p "$pkgdir/usr/src"
   ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
 
-  msg2 "Fixing permissions..."
+  echo "Fixing permissions..."
   chmod -Rc u=rwX,go=rX "$pkgdir"
 }
 
@@ -303,7 +303,7 @@ _package-docs() {
   cd $_srcname
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
-  msg2 "Installing documentation..."
+  echo "Installing documentation..."
   local src dst
   while read -rd '' src; do
     dst="${src#Documentation/}"
@@ -311,11 +311,11 @@ _package-docs() {
     install -Dm644 "$src" "$dst"
   done < <(find Documentation -name '.*' -prune -o ! -type d -print0)
 
-  msg2 "Adding symlink..."
+  echo "Adding symlink..."
   mkdir -p "$pkgdir/usr/share/doc"
   ln -sr "$builddir/Documentation" "$pkgdir/usr/share/doc/$pkgbase"
 
-  msg2 "Fixing permissions..."
+  echo "Fixing permissions..."
   chmod -Rc u=rwX,go=rX "$pkgdir"
 }
 
