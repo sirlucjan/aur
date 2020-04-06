@@ -18,17 +18,17 @@
 
 ###### linux-aufs incorporates:
 
-* [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.5) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
+* [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.x-rcN) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
 
 ###### linux-bfq incorporates:
 
 * [bfq improvements](https://groups.google.com/forum/#!forum/bfq-iosched) - latest fixes authored by Paolo Valente and BFQ Team
 
-* [bfq-dev](https://github.com/Algodev-github/bfq-mq/tree/dev-bfq-on-5.5-EOL) - latest fixes authored by Paolo Valente and BFQ Team
+* [bfq-dev](https://github.com/Algodev-github/bfq-mq/tree/dev-bfq-on-5.6) - latest fixes authored by Paolo Valente and BFQ Team
 
-* [bfq-lucjan-dev](https://github.com/sirlucjan/bfq-mq-lucjan/tree/dev-bfq-on-5.5-lucjan-EOL) - latest fixes authored by Paolo Valente and BFQ Team and forked by Piotr Gorski
+* [bfq-lucjan-dev](https://github.com/sirlucjan/bfq-mq-lucjan/tree/dev-bfq-on-5.6-lucjan) - latest fixes authored by Paolo Valente and BFQ Team and forked by Piotr Gorski
 
-* [LL-patches](https://github.com/sirlucjan/kernel-patches/tree/master/5.5/ll-patches) / [LL-patches](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.5/ll-patches) - specific patches authored by Piotr Gorski
+* [LL-patches](https://github.com/sirlucjan/kernel-patches/tree/master/5.6/ll-patches) / [LL-patches](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.6/ll-patches) - specific patches authored by Piotr Gorski
 
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
 
@@ -36,7 +36,7 @@
 
 ###### To use linux-bfq smoothly apply bfq-reverts before bfq-dev patch. Otherwise the kernel will not compile.
 
-* [bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.5/bfq-reverts-all-v2) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.5/bfq-reverts-all-v2) - specific patches authored by Piotr Gorski
+* ~~[bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.6/bfq-reverts-all-v2) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.6/bfq-reverts-all-v2) - specific patches authored by Piotr Gorski~~
 
 ###### linux-lqx incorporates:
 
