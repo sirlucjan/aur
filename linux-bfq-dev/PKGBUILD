@@ -45,8 +45,8 @@ _1k_HZ_ticks=
 
 ### Do not edit below this line unless you know what you're doing
 
-pkgbase=linux-bfq
-# pkgname=('linux-bfq' 'linux-bfq-headers' 'linux-bfq-docs')
+pkgbase=linux-bfq-dev
+# pkgname=('linux-bfq-dev' 'linux-bfq-dev-headers' 'linux-bfq-dev-docs')
 _major=5.7
 _minor=6
 pkgver=${_major}.${_minor}
@@ -62,7 +62,7 @@ makedepends=('kmod' 'bc' 'libelf' 'python-sphinx' 'python-sphinx_rtd_theme'
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
 # Some patches for BFQ conflict with patches for BFQ-dev.
-# To use linux-bfq smoothly apply bfq-reverts before bfq-dev patch.
+# To use linux-bfq-dev smoothly apply bfq-reverts before bfq-dev patch.
 # Otherwise the kernel will not compile.
 _bfq_rev_path="bfq-reverts-all-v2"
 _bfq_rev_patch="0001-bfq-reverts.patch"
@@ -197,7 +197,9 @@ _package() {
     optdepends=('crda: to set the correct wireless channels of your country'
                 'linux-firmware: firmware images needed for some devices'
                 'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
-    provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
+    provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE linux-bfq)
+    replaces=('linux-bfq')
+    conflicts=('linux-bfq')
 
   cd $_srcname
   local kernver="$(<version)"
@@ -219,8 +221,11 @@ _package() {
 }
 
 _package-headers() {
-   pkgdesc="Headers and scripts for building modules for the $pkgdesc kernel"
-   depends=('linux-bfq')
+    pkgdesc="Headers and scripts for building modules for the $pkgdesc kernel"
+    depends=('linux-bfq-dev')
+    replaces=('linux-bfq-headers')
+    conflicts=('linux-bfq-headers')
+    provides=('linux-bfq-headers')
 
   cd $_srcname
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
@@ -299,7 +304,10 @@ _package-headers() {
 
 _package-docs() {
     pkgdesc="Documentation for the $pkgdesc kernel"
-    depends=('linux-bfq')
+    depends=('linux-bfq-dev')
+    replaces=('linux-bfq-docs')
+    conflicts=('linux-bfq-docs')
+    provides=('linux-bfq-docs')
 
   cd $_srcname
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"

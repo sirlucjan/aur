@@ -4,7 +4,7 @@
 │   ├── config
 │   ├── PKGBUILD
 │   └── sphinx-workaround.patch
-├── linux-bfq
+├── linux-bfq-dev
 │   ├── config
 │   ├── PKGBUILD
 │   └── sphinx-workaround.patch
