@@ -2,9 +2,9 @@
 
 - linux-aufs
 
-- linux-bfq
+- linux-bfq-dev
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
+[![Packaging status](https://repology.org/badge/vertical-allrepos/linux-bfq-dev.svg)](https://repology.org/project/linux-bfq-dev/versions)
 
 - linux-lqx
 
@@ -20,7 +20,7 @@
 
 * [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.x-rcN) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
 
-###### linux-bfq incorporates:
+###### linux-bfq-dev incorporates:
 
 * [bfq improvements](https://groups.google.com/forum/#!forum/bfq-iosched) - latest fixes authored by Paolo Valente and BFQ Team
 
@@ -32,11 +32,11 @@
 
 * [LL-patches](https://github.com/sirlucjan/kernel-patches/tree/master/5.7/ll-patches) / [LL-patches](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.7/ll-patches) - specific patches authored by Piotr Gorski
 
-[![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-bfq.svg)](https://repology.org/project/linux-bfq/versions)
+[![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-bfq-dev.svg)](https://repology.org/project/linux-bfq-dev/versions)
 
 ###### Some patches for BFQ conflict with patches for BFQ-dev.
 
-###### To use linux-bfq smoothly apply bfq-reverts before bfq-dev patch. Otherwise the kernel will not compile.
+###### To use linux-bfq-dev smoothly apply bfq-reverts before bfq-dev patch. Otherwise the kernel will not compile.
 
 * [bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.7/bfq-reverts-all-v2) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.7/bfq-reverts-all-v2) - specific patches authored by Piotr Gorski
 
