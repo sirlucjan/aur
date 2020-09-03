@@ -1,7 +1,7 @@
 # Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com> PGP-Key: BDB26C5A
 # Contributor: shivik <> PGP-Key: 761E423C
 # Contributor: Michael Duell <mail@akurei.me> PGP-Key: 6EE23EBE
-# A special thanks to Steven Barrett for very important sugestions 
+# A special thanks to Steven Barrett for very important suggestions
 # Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 # Contributor: Tobias Powalowski <tpowa@archlinux.org>
 # Contributor: Thomas Baechler <thomas@archlinux.org>
@@ -46,6 +46,9 @@ _use_current=
 ### Disable MUQSS
 _muqss_disable=
 
+### Enable htmldocs (increases compile time)
+_htmldocs_enable=
+
 ### Do not edit below this line unless you know what you're doing
 
 # pkgname=('linux-lqx' 'linux-lqx-headers' 'linux-lqx-docs')
@@ -55,20 +58,32 @@ _lqxpatchname=liquorix-package
 _lqxpatchrel=2
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
 pkgbase=linux-lqx
-pkgver=5.8.6.1
-pkgrel=1
-pkgdesc='Linux LQX'
-arch=('x86_64')
-url="http://liquorix.net/"
-license=('GPL2')
+pkgver=5.8.6.lqx1
+pkgrel=2
+pkgdesc='Linux Liquorix'
+url='https://liquorix.net/'
+arch=(x86_64)
+license=(GPL2)
+makedepends=(bc kmod libelf zstd)
+if [ -n "$_htmldocs_enable" ]; then
+    makedepends+=(xmlto python-sphinx python-sphinx_rtd_theme graphviz imagemagick)
+fi
 options=('!strip')
-makedepends=('kmod' 'bc' 'libelf' 'python-sphinx' 'python-sphinx_rtd_theme'
-             'graphviz' 'imagemagick' 'cpio')
 
 source=("https://cdn.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         "https://cdn.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.sign"
         "https://github.com/damentz/${_lqxpatchname}/archive/${_major}-${_lqxpatchrel}.tar.gz"
         'sphinx-workaround.patch')
+validpgpkeys=(
+    'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
+    '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
+)
+sha512sums=('45a53ecf351096ef6e98242cca4228b8da9b9139ecc6963695791ea6fb7a9484a4e1c19dcca7ce7cbfdfa49de0451b70973bb078f12bdae9cbaddbc3f8092556'
+            'SKIP'
+            '9ae8858b462720a4e95debcfa860b4445ec2cd9395e24f7a9503ba31ba55043d36f5e5238866fe0197195a7de491e1dd9f9f9032ab9145230874205250659d15'
+            '98e97155f86bbe837d43f27ec1018b5b6fdc6c372d6f7f2a0fe29da117d53979d9f9c262f886850d92002898682781029b80d4ee923633fc068f979e6c8254be')
+
+
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -187,15 +202,17 @@ build() {
   cd $_srcname
 
   make all
-  make htmldocs
+  if [ -n "$_htmldocs_enable" ]; then
+    make htmldocs
+  fi
 }
 
 _package() {
     pkgdesc="The $pkgdesc kernel and modules"
-    depends=('coreutils' 'kmod' 'initramfs')
+    depends=(coreutils kmod initramfs)
     optdepends=('crda: to set the correct wireless channels of your country'
                 'linux-firmware: firmware images needed for some devices'
-                'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
+                'sof-firmware: firmware images needed for Sound Open Firmware capable devices')
     provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
 
   cd $_srcname
@@ -320,13 +337,3 @@ for _p in "${pkgname[@]}"; do
     _package${_p#$pkgbase}
   }"
 done
-
-sha512sums=('45a53ecf351096ef6e98242cca4228b8da9b9139ecc6963695791ea6fb7a9484a4e1c19dcca7ce7cbfdfa49de0451b70973bb078f12bdae9cbaddbc3f8092556'
-            'SKIP'
-            '9ae8858b462720a4e95debcfa860b4445ec2cd9395e24f7a9503ba31ba55043d36f5e5238866fe0197195a7de491e1dd9f9f9032ab9145230874205250659d15'
-            '98e97155f86bbe837d43f27ec1018b5b6fdc6c372d6f7f2a0fe29da117d53979d9f9c262f886850d92002898682781029b80d4ee923633fc068f979e6c8254be')
-
-validpgpkeys=(
-    'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
-    '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
-)
