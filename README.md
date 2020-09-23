@@ -38,7 +38,7 @@
 
 ###### To use linux-bfq-dev smoothly apply bfq-reverts before bfq-dev patch. Otherwise the kernel will not compile.
 
-* [bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.8/bfq-reverts-v2-all) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.8/bfq-reverts-v2-all) - specific patches authored by Piotr Gorski
+* [bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.8/bfq-reverts-v3-all) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.8/bfq-reverts-v3-all) - specific patches authored by Piotr Gorski
 
 ###### linux-lqx incorporates:
 
