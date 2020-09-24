@@ -7,8 +7,7 @@
 │   ├── config
 │   └── PKGBUILD
 ├── linux-lqx
-│   ├── PKGBUILD
-│   └── sphinx-workaround.patch
+│   └── PKGBUILD
 ├── linux-next-git
 │   ├── config
 │   └── PKGBUILD
@@ -17,4 +16,4 @@
 │   └── PKGBUILD
 └── README.md
 
-5 directories, 12 files
+5 directories, 11 files
