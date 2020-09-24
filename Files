@@ -14,8 +14,7 @@
 │   └── PKGBUILD
 ├── linux-uksm
 │   ├── config
-│   ├── PKGBUILD
-│   └── sphinx-workaround.patch
+│   └── PKGBUILD
 └── README.md
 
-5 directories, 13 files
+5 directories, 12 files
