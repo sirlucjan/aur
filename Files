@@ -5,8 +5,7 @@
 │   └── PKGBUILD
 ├── linux-bfq-dev
 │   ├── config
-│   ├── PKGBUILD
-│   └── sphinx-workaround.patch
+│   └── PKGBUILD
 ├── linux-lqx
 │   ├── PKGBUILD
 │   └── sphinx-workaround.patch
@@ -19,4 +18,4 @@
 │   └── sphinx-workaround.patch
 └── README.md
 
-5 directories, 14 files
+5 directories, 13 files
