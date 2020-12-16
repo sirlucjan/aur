@@ -9,11 +9,10 @@
 ├── linux-lqx
 │   └── PKGBUILD
 ├── linux-next-git
-│   ├── config
 │   └── PKGBUILD
 ├── linux-uksm
 │   ├── config
 │   └── PKGBUILD
 └── README.md
 
-5 directories, 11 files
+5 directories, 10 files
