@@ -18,7 +18,7 @@
 
 ###### linux-aufs incorporates:
 
-* [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.7) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
+* [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.10) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
 
 ###### linux-bfq-dev incorporates:
 
