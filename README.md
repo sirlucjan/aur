@@ -30,7 +30,7 @@
 
 * ~~[bfq-dev-lucjan-rc](https://github.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-dev-lucjan) / [bfq-dev-lucjan-rc](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-dev-lucjan) - specific patches authored by Paolo Valente and Piotr Gorski~~
 
-* [bfq-lucjan](https://github.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-dev) / [bfq-lucjan](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-lucjan) - specific patches authored by Paolo Valente and Piotr Gorski
+* [bfq-lucjan](https://github.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-lucjan) / [bfq-lucjan](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-lucjan) - specific patches authored by Paolo Valente and Piotr Gorski
 
 * [LL-patches](https://github.com/sirlucjan/kernel-patches/tree/master/5.11/ll-patches) / [LL-patches](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.11/ll-patches) - specific patches authored by Piotr Gorski
 
