@@ -40,7 +40,7 @@
 
 ###### To use linux-bfq-dev smoothly apply bfq-reverts before bfq-dev patch. Otherwise the kernel will not compile.
 
-* ~~[bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.12/bfq-reverts-all) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.12/bfq-reverts-all) - specific patches authored by Piotr Gorski~~
+* ~~[bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-reverts-all) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-reverts-all) - specific patches authored by Piotr Gorski~~
 
 ###### linux-lqx incorporates:
 
