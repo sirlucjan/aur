@@ -18,7 +18,7 @@
 
 ###### linux-aufs incorporates:
 
-* [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.12) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
+* [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.13) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
 
 * [graysky's GCC/Clang patch](https://github.com/graysky2/kernel_compiler_patch) - version for gcc v11/clang v12
 
@@ -32,11 +32,11 @@
 
 * ~~[bfq-dev-lucjan-rc](https://github.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-dev-lucjan) / [bfq-dev-lucjan-rc](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-dev-lucjan) - specific patches authored by Paolo Valente and Piotr Gorski~~
 
-* [bfq-lucjan](https://github.com/sirlucjan/kernel-patches/tree/master/5.12/bfq-lucjan) / [bfq-lucjan](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.12/bfq-lucjan) - specific patches authored by Paolo Valente and Piotr Gorski
+* [bfq-lucjan](https://github.com/sirlucjan/kernel-patches/tree/master/5.13/bfq-lucjan) / [bfq-lucjan](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.13/bfq-lucjan) - specific patches authored by Paolo Valente and Piotr Gorski
 
 * [graysky's GCC/Clang patch](https://github.com/graysky2/kernel_compiler_patch) - version for gcc v11/clang v12
 
-* [LL-patches](https://github.com/sirlucjan/kernel-patches/tree/master/5.12/ll-patches) / [LL-patches](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.12/ll-patches) - specific patches authored by Piotr Gorski
+* [LL-patches](https://github.com/sirlucjan/kernel-patches/tree/master/5.13/ll-patches) / [LL-patches](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.13/ll-patches) - specific patches authored by Piotr Gorski
 
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-bfq-dev.svg)](https://repology.org/project/linux-bfq-dev/versions)
 
@@ -48,7 +48,7 @@
 
 ###### linux-lqx incorporates:
 
-* [liquorix patchset](https://github.com/damentz/liquorix-package/tree/5.11/master) - authored by Steven Barrett
+* [liquorix patchset](https://github.com/damentz/liquorix-package/tree/5.12/master) - authored by Steven Barrett
 
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-lqx.svg)](https://repology.org/project/linux-lqx/versions)
 
