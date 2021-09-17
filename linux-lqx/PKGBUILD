@@ -43,8 +43,12 @@ _localmodcfg=
 # a new kernel is released, but again, convenient for package bumps.
 _use_current=
 
-### Disable MUQSS
-_muqss_disable=
+### Selecting the CPU scheduler
+# ATTENTION - one of three predefined values should be selected!
+# 'bmq' - select 'BitMap Queue CPU scheduler'
+# 'pds' - select 'Priority and Deadline based Skip list multiple queue CPU scheduler'
+# 'none' - select 'Completely Fair Scheduler'
+_projectc='pds'
 
 ### Enable htmldocs (increases compile time)
 _htmldocs_enable=
@@ -52,13 +56,13 @@ _htmldocs_enable=
 ### Do not edit below this line unless you know what you're doing
 
 # pkgname=('linux-lqx' 'linux-lqx-headers' 'linux-lqx-docs')
-_major=5.13
+_major=5.14
 _srcname=linux-${_major}
 _lqxpatchname=liquorix-package
-_lqxpatchrel=15
+_lqxpatchrel=1
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
 pkgbase=linux-lqx
-pkgver=5.13.16.lqx2
+pkgver=5.14.4.lqx1
 pkgrel=1
 pkgdesc='Linux Liquorix'
 url='https://liquorix.net/'
@@ -79,9 +83,9 @@ validpgpkeys=(
     'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
     '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
 )
-sha512sums=('a8edf97e9d38a49f1be2bde1e29ad96274bb2c6f7e8a2bebaa1161dd4df9cabcbaec4ff644c45bee94f86ae47725087d6deed0cd954209cec717621d137db85e'
+sha512sums=('8e4f3ec3d36f774280f75dc7b004a43e09417af58f12e9c9f8348976659d4cfda7ad905f306f43fed66a27922e5c45db22e46bbfa7a0b9f365012380de3b6f64'
             'SKIP'
-            '77435f137d4bc3810f3f5dbbab2a8b0c1bb3453e987f610677a008a8ad573d36e5004ef6fef58ea0265bbb49d9d9a7751d6517c955516fcac7dfa693b8ec5ea1')
+            '371fbdb70d52b47fe581cc78b5b26407b5d3922ca1fb2f9c39a7852ebca2e913bbd5bdd9aefd1622748e02819dea7ae195c95ffca7f5e192bc3b89d16d0cc2ce')
 
 
 
@@ -144,18 +148,27 @@ prepare() {
 		fi
 	fi
 
-    ### Disable MUQSS
-        if [ -n "$_muqss_disable" ]; then
-        echo "Disabling MUQSS..."
-            scripts/config --disable CONFIG_SCHED_MUQSS
-            scripts/config --disable CONFIG_RQ_NONE
-            scripts/config --disable CONFIG_RQ_SMT
-            scripts/config --disable CONFIG_RQ_MC
-            scripts/config --disable CONFIG_RQ_MC_LLC
-            scripts/config --disable CONFIG_RQ_SMP
-            scripts/config --disable CONFIG_RQ_ALL
-            scripts/config --undefine CONFIG_SHARERQ
-        fi
+    ### Selecting the CPU scheduler
+	if [ "$_projectc" = "bmq" ]; then
+		echo "Selecting BMQ CPU scheduler..."
+		scripts/config --enable CONFIG_SCHED_BMQ
+		scripts/config --disable CONFIG_SCHED_PDS
+	elif [ "$_projectc" = "pds" ]; then
+		echo "Selecting PDS CPU scheduler..."
+		scripts/config --disable CONFIG_SCHED_BMQ
+		scripts/config --enable CONFIG_SCHED_PDS
+	elif [ "$_projectc" = "none" ]; then
+		echo "Selecting Completely Fair Scheduler..."
+		scripts/config --disable CONFIG_SCHED_ALT
+	else
+		if [ -n "$_projectc" ]; then
+			error "The value $_projectc is invalid. Choose the correct one again."
+		else
+			error "The value is empty. Choose the correct one again."
+		fi
+		error "Selecting the CPU scheduler failed!"
+		exit
+	fi
 
     ### Optionally disable NUMA for 64-bit kernels only
         # (x86 kernels do not support NUMA)
