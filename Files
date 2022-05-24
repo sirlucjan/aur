@@ -11,7 +11,7 @@
 ├── linux-next-git
 │   ├── config
 │   └── PKGBUILD
-├── linux-uksm
+├── linux-uksmd
 │   ├── config
 │   └── PKGBUILD
 └── README.md
