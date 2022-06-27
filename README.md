@@ -48,7 +48,7 @@
 
 ###### linux-lqx incorporates:
 
-* [liquorix patchset](https://github.com/damentz/liquorix-package/tree/5.17/master) - authored by Steven Barrett
+* [liquorix patchset](https://github.com/damentz/liquorix-package/tree/5.18/master) - authored by Steven Barrett
 
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/linux-lqx.svg)](https://repology.org/project/linux-lqx/versions)
 
