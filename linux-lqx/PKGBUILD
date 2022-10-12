@@ -59,11 +59,11 @@ _htmldocs_enable=
 _major=5.19
 _srcname=linux-${_major}
 _lqxpatchname=liquorix-package
-_lqxpatchrel=18
+_lqxpatchrel=20
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
 pkgbase=linux-lqx
 pkgver=5.19.14.lqx1
-pkgrel=2
+pkgrel=4
 pkgdesc='Linux Liquorix'
 url='https://liquorix.net/'
 arch=(x86_64)
@@ -85,7 +85,7 @@ validpgpkeys=(
 )
 sha512sums=('00313b2f9b82d2dc3fb8294007cf7d7599d254b717ed2de23c81fa7a1bbcbc2798ad286cb94e2f7f5bd54132d1d764facd90d30f79dbcc6616cc7f926adc2623'
             'SKIP'
-            'f559699bad78d3c35830bfac8689a0992183e20554fbfd839a0cd54c7636f07e4af1cfb5536f3a8aabb1275b02cb9249d369a95e181911a663dc661fc230fd57')
+            '22d9e94399328bb0aceb5005836eb9edcb1efc97eae159bf576dad1290c89c63fc4cf1e5eff0e401630f330bac0fac22427d8de0cc70694bd114d7da84526bce')
 
 
 
@@ -94,7 +94,7 @@ export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 
 prepare() {
-    cd $_srcname
+  cd $_srcname
 
     ### Set package version variables
         _abiname="$(cat ${srcdir}/${_lqxpatchver}/linux-liquorix/debian/config/defines | grep 'abiname:' | sed -r 's/abiname:\s*//')"
@@ -220,14 +220,14 @@ build() {
 }
 
 _package() {
-    pkgdesc="The $pkgdesc kernel and modules"
-    depends=(coreutils kmod initramfs)
-    optdepends=('wireless-regdb: to set the correct wireless channels of your country'
-                'linux-firmware: firmware images needed for some devices'
-                'sof-firmware: firmware images needed for Sound Open Firmware capable devices'
-                'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig'
-                'uksmd: Userspace KSM helper daemon')
-    provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE UKSMD-BUILTIN VHBA-MODULE)
+  pkgdesc="The $pkgdesc kernel and modules"
+  depends=(coreutils kmod initramfs)
+  optdepends=('wireless-regdb: to set the correct wireless channels of your country'
+              'linux-firmware: firmware images needed for some devices'
+              'sof-firmware: firmware images needed for Sound Open Firmware capable devices'
+              'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig'
+              'uksmd: Userspace KSM helper daemon')
+  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE UKSMD-BUILTIN VHBA-MODULE)
 
   cd $_srcname
   local kernver="$(<version)"
@@ -250,8 +250,8 @@ _package() {
 }
 
 _package-headers() {
-    pkgdesc="Headers and scripts for building modules for the $pkgdesc kernel"
-    depends=('linux-lqx' 'pahole')
+  pkgdesc="Headers and scripts for building modules for the $pkgdesc kernel"
+  depends=('linux-lqx' 'pahole')
 
   cd $_srcname
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
