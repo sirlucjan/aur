@@ -1,19 +1,10 @@
 .
 ├── Files
-├── linux-aufs
-│   ├── config
-│   └── PKGBUILD
-├── linux-bfq-dev
-│   ├── config
-│   └── PKGBUILD
 ├── linux-lqx
 │   └── PKGBUILD
 ├── linux-next-git
 │   ├── config
 │   └── PKGBUILD
-├── linux-uksmd
-│   ├── config
-│   └── PKGBUILD
 └── README.md
 
-5 directories, 11 files
+2 directories, 5 files
