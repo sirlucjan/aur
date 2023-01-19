@@ -152,12 +152,12 @@ prepare() {
     ### Selecting the CPU scheduler
 	if [ "$_projectc" = "bmq" ]; then
 		echo "Selecting BMQ CPU scheduler..."
-		scripts/config --enable CONFIG_SCHED_BMQ
+		scripts/config -e CONFIG_SCHED_BMQ
 		scripts/config --disable CONFIG_SCHED_PDS
 	elif [ "$_projectc" = "pds" ]; then
 		echo "Selecting PDS CPU scheduler..."
 		scripts/config --disable CONFIG_SCHED_BMQ
-		scripts/config --enable CONFIG_SCHED_PDS
+		scripts/config -e CONFIG_SCHED_PDS
 	elif [ "$_projectc" = "none" ]; then
 		echo "Selecting Completely Fair Scheduler..."
 		scripts/config --disable CONFIG_SCHED_ALT
@@ -192,7 +192,7 @@ prepare() {
 
     ## Use DWARF5 debug info for Arch
   echo "Upgrading debug info from toolchain default to DWARF v5..."
-  scripts/config --enable CONFIG_DEBUG_INFO_DWARF5
+  scripts/config -e CONFIG_DEBUG_INFO_DWARF5
 
     ### Running make nconfig
 	[[ -z "$_makenconfig" ]] ||  make nconfig
