@@ -3,8 +3,9 @@
 ├── linux-lqx
 │   └── PKGBUILD
 ├── linux-next-git
+│   ├── 0002-setlocalversion-do-not-append-git-commit-hash-if-loc.patch
 │   ├── config
 │   └── PKGBUILD
 └── README.md
 
-3 directories, 5 files
+3 directories, 6 files
