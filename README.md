@@ -8,8 +8,6 @@
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/linux-lqx.svg)](https://repology.org/project/linux-lqx/versions)
 
-- linux-next-git
-
 ###### linux-lqx incorporates:
 
 * [liquorix patchset](https://github.com/damentz/liquorix-package/tree/6.13/master) - authored by Steven Barrett
