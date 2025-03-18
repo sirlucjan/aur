@@ -2,9 +2,6 @@
 ├── Files
 ├── linux-lqx
 │   └── PKGBUILD
-├── linux-next-git
-│   ├── config
-│   └── PKGBUILD
 └── README.md
 
-3 directories, 5 files
+2 directories, 3 files
